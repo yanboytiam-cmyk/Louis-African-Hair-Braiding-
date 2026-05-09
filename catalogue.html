@@ -1,0 +1,1698 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogue — Louis African Hair Braiding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <style>
+    /* ───────── CSS CUSTOM PROPERTIES ───────── */
+    :root {
+      --gold-300: #dbc178;
+      --gold-400: #c9a961;
+      --gold-500: #b8923f;
+      --gold-600: #9a7a30;
+      --gold-700: #7a5f22;
+      --ink-900: #0f0e0b;
+      --ink-800: #1f1c16;
+      --ink-600: #423d33;
+      --ink-400: #8a8175;
+      --ink-200: #c9c3b5;
+      --white-warm: #fdfcf9;
+      --cream: #faf6ec;
+      --pearl: #f2ede0;
+      --border-gold-soft: rgba(201, 169, 97, 0.3);
+      --border-ink-soft: rgba(15, 14, 11, 0.08);
+      --red-500: #ef4444;
+      --blue-500: #3b82f6;
+    }
+
+    /* ───────── RESET & BASE ───────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--ink-800);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ───────── GLASS UTILITIES ───────── */
+    .glass-soft {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .glass-gold {
+      background: linear-gradient(135deg, rgba(201, 169, 97, 0.18), rgba(255, 255, 255, 0.55));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold-soft);
+    }
+
+    /* ───────── SCROLL REVEAL ───────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ───────── NAVBAR ───────── */
+    .navbar {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(15, 14, 11, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(201, 169, 97, 0.2);
+      border-radius: 9999px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 9999px;
+      color: var(--ink-200);
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-item:hover { color: var(--gold-300); background: rgba(201, 169, 97, 0.1); }
+    .nav-item.active { background: var(--gold-400); color: var(--ink-900); box-shadow: 0 0 20px rgba(201,169,97,.4); }
+    .nav-item svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .nav-label { display: none; }
+    @media (min-width: 640px) { .nav-label { display: inline; } }
+
+    /* ───────── HERO ───────── */
+    .hero {
+      background: var(--ink-900);
+      padding: 144px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 0; transform: translate(-50%, -50%); pointer-events: none;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 560px;
+      height: 320px;
+      background: radial-gradient(ellipse at center, rgba(201, 169, 97, 0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-400);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.6rem, 6vw, 4.5rem);
+      font-weight: 400;
+      color: var(--white-warm);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      animation: fadeSlideUp 0.9s ease both;
+    }
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: var(--ink-200);
+      max-width: 480px;
+      margin: 0 auto;
+      animation: fadeSlideUp 0.9s ease 0.15s both;
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ───────── CATEGORY SWITCHER ───────── */
+    .category-switcher-wrap {
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      border-bottom: 1px solid var(--border-ink-soft);
+      padding: 0 24px;
+    }
+    .category-switcher {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 0;
+    }
+    .cat-tab {
+      padding: 9px 24px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1.5px solid var(--border-ink-soft);
+      color: var(--ink-600);
+      background: transparent;
+      transition: all 0.22s ease;
+    }
+    .cat-tab:hover { border-color: var(--gold-400); color: var(--gold-600); }
+    .cat-tab.active {
+      background: var(--ink-900);
+      border-color: var(--ink-900);
+      color: var(--gold-300);
+    }
+
+    /* ───────── SECTION WRAPPER ───────── */
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      color: var(--ink-900);
+      margin-bottom: 8px;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--ink-400);
+      margin-bottom: 36px;
+    }
+
+    /* ───────── FILTER BAR ───────── */
+    .filter-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .filter-row::-webkit-scrollbar { display: none; }
+    .filter-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-400);
+      white-space: nowrap;
+      min-width: 64px;
+      flex-shrink: 0;
+    }
+    .filter-pill {
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1.5px solid var(--border-ink-soft);
+      color: var(--ink-600);
+      background: var(--white-warm);
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .filter-pill:hover { border-color: var(--gold-400); color: var(--gold-600); }
+    .filter-pill.active {
+      background: var(--ink-900);
+      border-color: var(--ink-900);
+      color: var(--gold-300);
+    }
+
+    /* ───────── SERVICES GRID ───────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .service-card {
+      background: var(--white-warm);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-ink-soft);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(15, 14, 11, 0.1);
+    }
+    .service-card[data-featured="true"] {
+      border-color: var(--border-gold-soft);
+      box-shadow: 0 0 0 1px var(--border-gold-soft);
+    }
+    .service-img-wrap {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      position: relative;
+    }
+    .service-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; object-position: top;
+      transition: transform 0.5s ease;
+    }
+    .service-card:hover .service-img-wrap img { transform: scale(1.05); }
+    .featured-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--gold-500);
+      color: var(--white-warm);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+    .service-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--ink-900);
+      margin-bottom: 2px;
+    }
+    .service-tagline {
+      font-size: 12px;
+      font-style: italic;
+      color: var(--gold-500);
+      margin-bottom: 10px;
+    }
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+    .badge-duration {
+      background: var(--pearl);
+      color: var(--ink-600);
+      border: 1px solid var(--border-ink-soft);
+    }
+    .badge-price {
+      background: rgba(201, 169, 97, 0.15);
+      color: var(--gold-600);
+      border: 1px solid var(--border-gold-soft);
+    }
+    .service-desc {
+      font-size: 13.5px;
+      color: var(--ink-400);
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .btn-book {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      background: var(--ink-900);
+      color: var(--gold-300);
+      font-size: 13px;
+      font-weight: 600;
+      border: 1.5px solid transparent;
+      transition: background 0.22s, color 0.22s, border-color 0.22s;
+      align-self: flex-start;
+    }
+    .btn-book:hover {
+      background: var(--gold-500);
+      color: var(--white-warm);
+    }
+
+    /* ───────── NO RESULTS ───────── */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 64px 24px;
+      color: var(--ink-400);
+      grid-column: 1 / -1;
+    }
+    .no-results svg {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      color: var(--ink-200);
+    }
+    .no-results p { font-size: 15px; }
+
+    /* ───────── PRODUCTS SECTION ───────── */
+    #products-section { scroll-margin-top: 8rem;  display: none; }
+
+    .sub-tab-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .sub-tab {
+      padding: 8px 22px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1.5px solid var(--border-ink-soft);
+      color: var(--ink-600);
+      background: var(--white-warm);
+      transition: all 0.2s ease;
+    }
+    .sub-tab:hover { border-color: var(--gold-400); color: var(--gold-600); }
+    .sub-tab.active {
+      background: var(--gold-500);
+      border-color: var(--gold-500);
+      color: var(--white-warm);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 640px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .product-tab-panel { display: none; }
+    .product-tab-panel.active { display: contents; }
+
+    .product-card {
+      background: var(--white-warm);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-ink-soft);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(15, 14, 11, 0.1);
+    }
+    .product-img-wrap {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      position: relative;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; object-position: top;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.06); }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+    .product-badge.bestseller { background: var(--gold-500); color: var(--white-warm); }
+    .product-badge.new-badge { background: var(--ink-900); color: var(--white-warm); }
+    .product-badge.sale { background: var(--red-500); color: #fff; }
+
+    .product-body {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .product-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink-900);
+      margin-bottom: 2px;
+    }
+    .product-fullname {
+      font-size: 12.5px;
+      color: var(--ink-400);
+      margin-bottom: 12px;
+    }
+    .product-price {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink-800);
+      margin-bottom: 12px;
+    }
+    .swatches {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(15, 14, 11, 0.15);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+      flex-shrink: 0;
+    }
+    .swatch:hover { transform: scale(1.3); z-index: 1; }
+    .swatch::after {
+      content: attr(data-color-name);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink-900);
+      color: var(--white-warm);
+      font-size: 10px;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 3px 8px;
+      border-radius: 4px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .swatch:hover::after { opacity: 1; }
+
+    .btn-add-cart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      background: linear-gradient(135deg, rgba(201, 169, 97, 0.18), rgba(255, 255, 255, 0.55));
+      backdrop-filter: blur(20px);
+      border: 1.5px solid var(--border-gold-soft);
+      color: var(--gold-600);
+      transition: all 0.22s ease;
+      margin-top: auto;
+    }
+    .btn-add-cart:hover {
+      background: var(--gold-500);
+      border-color: var(--gold-500);
+      color: var(--white-warm);
+    }
+    .btn-add-cart.added {
+      background: var(--gold-600);
+      border-color: var(--gold-600);
+      color: var(--white-warm);
+    }
+
+    /* ───────── CONSULTATION BAND ───────── */
+    .consult-band {
+      background: var(--ink-900);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .consult-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201, 169, 97, 0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .consult-inner { position: relative; z-index: 1; }
+    .consult-band h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      color: var(--white-warm);
+      margin-bottom: 12px;
+    }
+    .consult-band p {
+      font-size: 15px;
+      color: var(--ink-200);
+      margin-bottom: 32px;
+    }
+    .btn-cta-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 36px;
+      border-radius: 9999px;
+      background: var(--gold-500);
+      color: var(--white-warm);
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      transition: background 0.22s ease, transform 0.2s ease;
+    }
+    .btn-cta-gold:hover { background: var(--gold-400); transform: translateY(-2px); }
+
+    /* ───────── FOOTER ───────── */
+    footer {
+      background: var(--ink-800);
+      color: var(--ink-200);
+      padding: 64px 24px 32px;
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+    .footer-brand h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--gold-300);
+      margin-bottom: 12px;
+    }
+    .footer-brand p { font-size: 13.5px; line-height: 1.7; }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-400);
+      margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { font-size: 13.5px; margin-bottom: 8px; }
+    .footer-col ul li a:hover { color: var(--gold-300); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 12.5px;
+      color: var(--ink-400);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    /* Mobile footer accordion */
+    @media (max-width: 767px) {
+      .footer-accordion-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px 0;
+      }
+      .footer-accordion-toggle h4 {
+        margin-bottom: 0;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold-400);
+      }
+      .footer-accordion-toggle svg {
+        width: 16px;
+        height: 16px;
+        color: var(--gold-400);
+        transition: transform 0.25s ease;
+        flex-shrink: 0;
+      }
+      .footer-accordion-toggle.open svg { transform: rotate(180deg); }
+      .footer-accordion-body {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.35s ease;
+      }
+      .footer-accordion-body.open { max-height: 300px; }
+      .footer-col h4 { display: none; }
+    }
+    @media (min-width: 768px) {
+      .footer-accordion-toggle { display: none; }
+      .footer-accordion-body { max-height: none !important; overflow: visible !important; }
+    }
+  </style>
+
+
+
+
+<style id="global-overlap-fixes">
+  /* 1. Reduce hero section by 50% */
+  #hero, .hero, header[class*="hero"] {
+    min-height: 65svh !important;
+    border-radius: 0 0 clamp(1.5rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3.5rem) !important;
+    margin-bottom: -3rem !important;
+    padding-bottom: 4rem !important;
+    z-index: 50 !important;
+    position: relative !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12) !important;
+  }
+
+  /* Reduce inner padding of hero so it CAN shrink */
+  .hero-content {
+    min-height: 65svh !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .hero-bridge {
+    height: 4rem !important;
+  }
+
+  /* 2. Overlapping rounded sections */
+  section {
+    border-radius: 0 0 clamp(1.5rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3.5rem) !important;
+    margin-bottom: -3rem !important;
+    padding-top: 8rem !important; 
+    padding-bottom: 8rem !important;
+    position: relative !important;
+    box-shadow: 0 -5px 40px rgba(0,0,0,0.02), 0 15px 40px rgba(0,0,0,0.06) !important;
+    background-clip: padding-box !important;
+  }
+
+  /* 3. Footer protection */
+  footer {
+    position: relative !important;
+    z-index: 10 !important;
+    padding-top: 8rem !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* 4. Z-index stacking */
+  main { z-index: 30 !important; position: relative !important; }
+  
+  body > section:nth-of-type(1), main > section:nth-of-type(1) { z-index: 45 !important; }
+  body > section:nth-of-type(2), main > section:nth-of-type(2) { z-index: 44 !important; }
+  body > section:nth-of-type(3), main > section:nth-of-type(3) { z-index: 43 !important; }
+  body > section:nth-of-type(4), main > section:nth-of-type(4) { z-index: 42 !important; }
+  body > section:nth-of-type(5), main > section:nth-of-type(5) { z-index: 41 !important; }
+  body > section:nth-of-type(6), main > section:nth-of-type(6) { z-index: 40 !important; }
+  body > section:nth-of-type(7), main > section:nth-of-type(7) { z-index: 39 !important; }
+  body > section:nth-of-type(8), main > section:nth-of-type(8) { z-index: 38 !important; }
+  body > section:nth-of-type(9), main > section:nth-of-type(9) { z-index: 37 !important; }
+  body > section:nth-of-type(10), main > section:nth-of-type(10) { z-index: 36 !important; }
+  body > section:nth-of-type(11), main > section:nth-of-type(11) { z-index: 35 !important; }
+  body > section:nth-of-type(12), main > section:nth-of-type(12) { z-index: 34 !important; }
+  body > section:nth-of-type(13), main > section:nth-of-type(13) { z-index: 33 !important; }
+  body > section:nth-of-type(14), main > section:nth-of-type(14) { z-index: 32 !important; }
+  body > section:nth-of-type(15), main > section:nth-of-type(15) { z-index: 31 !important; }
+  body > section:nth-of-type(16), main > section:nth-of-type(16) { z-index: 30 !important; }
+  body > section:nth-of-type(17), main > section:nth-of-type(17) { z-index: 29 !important; }
+  body > section:nth-of-type(18), main > section:nth-of-type(18) { z-index: 28 !important; }
+  body > section:nth-of-type(19), main > section:nth-of-type(19) { z-index: 27 !important; }
+  body > section:nth-of-type(20), main > section:nth-of-type(20) { z-index: 26 !important; }
+
+</style>
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════ -->
+  <nav class="navbar" aria-label="Main navigation">
+    <a href="services.html" class="nav-item" aria-label="Services">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span class="nav-label">Services</span>
+    </a>
+    <a href="catalogue.html" class="nav-item active" aria-label="Catalogue" aria-current="page">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+      <span class="nav-label">Catalogue</span>
+    </a>
+    <a href="index.html" class="nav-item" aria-label="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="nav-label">Home</span>
+    </a>
+    <a href="about.html" class="nav-item" aria-label="About">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      <span class="nav-label">About</span>
+    </a>
+    <a href="contact.html" class="nav-item" aria-label="Contact">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <span class="nav-label">Contact</span>
+    </a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════ -->
+  <section class="hero" aria-label="Page hero">
+    <img class="hero-bg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;opacity:0.6;" src="image/generated/home_hero_1778222607138.png" alt="Catalogue Hero" />
+    <div class="hero-glow" aria-hidden="true"></div>
+    <span class="hero-eyebrow">Our Complete Collection</span>
+    <h1 class="hero-title">The Flawless Catalogue</h1>
+    <p class="hero-subtitle">Tension-free braids, sleek stitch braids, and melted HD lace wigs.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CATEGORY SWITCHER
+  ════════════════════════════════════════════ -->
+  <div class="category-switcher-wrap" id="cat-switcher">
+    <div class="category-switcher">
+      <button class="cat-tab active" data-cat="services" aria-pressed="true">Services</button>
+      <button class="cat-tab" data-cat="products" aria-pressed="false">Products</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES SECTION
+  ════════════════════════════════════════════ -->
+  <section id="services-section" aria-label="Services catalogue">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Styling Services</h2>
+      <p class="section-subtitle reveal reveal-delay-1">19 expertly crafted styles — filter to find yours.</p>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar" role="group" aria-label="Service filters">
+        <div class="filter-row">
+          <span class="filter-label">Style</span>
+          <button class="filter-pill active" data-filter="type" data-value="all">All</button>
+          <button class="filter-pill" data-filter="type" data-value="Braids">Braids</button>
+          <button class="filter-pill" data-filter="type" data-value="Twists">Twists</button>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Price</span>
+          <button class="filter-pill active" data-filter="price" data-value="all">All</button>
+          <button class="filter-pill" data-filter="price" data-value="$">$</button>
+          <button class="filter-pill" data-filter="price" data-value="$$">$$</button>
+          <button class="filter-pill" data-filter="price" data-value="$$$">$$$</button>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Duration</span>
+          <button class="filter-pill active" data-filter="duration" data-value="all">All</button>
+          <button class="filter-pill" data-filter="duration" data-value="Under 2h">Under 2h</button>
+          <button class="filter-pill" data-filter="duration" data-value="2-5h">2–5h</button>
+          <button class="filter-pill" data-filter="duration" data-value="5h+">5h+</button>
+        </div>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="services-grid" id="services-grid" role="list">
+
+        <!-- 1. Box Braids -->
+        <article class="service-card reveal" data-type="Braids" data-duration="2-5h" data-featured="true" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/49ec4ea48ffab979aba9ca589dfd8ad0.jpg" alt="Fulani Boho Braids" loading="lazy" />
+            <span class="featured-badge">Featured</span>
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Fulani Boho Braids</h3>
+            <p class="service-tagline">Tribal cornrows meeting flowing curls.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Clean parts, lasting hold, with beautiful cascading curls.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Fulani%20Boho%20Braids*%20%28from%20%24180%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/49ec4ea48ffab979aba9ca589dfd8ad0.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 2. Knotless Braids -->
+        <article class="service-card reveal reveal-delay-1" data-type="Braids" data-duration="2-5h" data-featured="true" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/529dcde1acb2ab0f80203381edea31a3.jpg" alt="Boho Knotless Braids" loading="lazy" />
+            <span class="featured-badge">Featured</span>
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Boho Knotless Braids</h3>
+            <p class="service-tagline">Featherlight from root to tip with curls.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Tension-light roots blended with flowing boho curls.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Boho%20Knotless%20Braids*%20%28from%20%24220%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/529dcde1acb2ab0f80203381edea31a3.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 3. Goddess Braids -->
+        <article class="service-card reveal reveal-delay-2" data-type="Braids" data-duration="2-5h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/5631b05b64a7544cfea39cb446864718.jpg" alt="Half-Up Half-Down" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Half-Up Half-Down</h3>
+            <p class="service-tagline">Versatile and chic.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Sculptural cornrows on top with a flowing curly back.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Half-Up%20Half-Down*%20%28from%20%24200%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/5631b05b64a7544cfea39cb446864718.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 4. Cornrows -->
+        <article class="service-card reveal" data-type="Braids" data-duration="Under 2h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" alt="Classic Cornrows" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Classic Cornrows</h3>
+            <p class="service-tagline">Precision rows, limitless patterns.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">Under 2h</span>
+              
+            </div>
+            <p class="service-desc">Clean, protective rows expertly parted and braided.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Classic%20Cornrows*%20%28from%20%2480%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 5. Senegalese Twists -->
+        <article class="service-card reveal reveal-delay-1" data-type="Twists" data-duration="2-5h" data-featured="true" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/6ba44eb750e3df354f4a5f1e6778f49d.jpg" alt="Goddess Cornrows" loading="lazy" />
+            <span class="featured-badge">Featured</span>
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Goddess Cornrows</h3>
+            <p class="service-tagline">Sleek cornrows ending in soft curls.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Intricate braided patterns meeting bouncy, romantic curls.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Goddess%20Cornrows*%20%28from%20%24200%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/6ba44eb750e3df354f4a5f1e6778f49d.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 6. Passion Twists -->
+        <article class="service-card reveal reveal-delay-2" data-type="Twists" data-duration="2-5h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/6fd5be9d1b6e65091efbb44fafb2cb74.jpg" alt="Passion Twists" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Passion Twists</h3>
+            <p class="service-tagline">Soft, fluffy twists with romantic movement.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Bohemian textures that frame the face.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Passion%20Twists*%20%28from%20%24220%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/6fd5be9d1b6e65091efbb44fafb2cb74.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 7. Faux Locs -->
+        <article class="service-card reveal" data-type="Braids" data-duration="2-5h" data-featured="true" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" alt="Large Box Braids" loading="lazy" />
+            <span class="featured-badge">Featured</span>
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Large Box Braids</h3>
+            <p class="service-tagline">Classic, bold, and neatly parted.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Thick, pristine box braids that make a statement.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Large%20Box%20Braids*%20%28from%20%24250%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 8. Crochet Braids -->
+        <article class="service-card reveal reveal-delay-1" data-type="Braids" data-duration="2-5h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/790350741d0a6fe96d38a87ea84e12b1.jpg" alt="Half-Up Sew-In" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Half-Up Sew-In</h3>
+            <p class="service-tagline">Cornrows meeting flowing curls.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Neat straight-back cornrows blending seamlessly into voluminous curls.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Half-Up%20Sew-In*%20%28from%20%24150%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/790350741d0a6fe96d38a87ea84e12b1.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 9. Lemonade Braids -->
+        <article class="service-card reveal reveal-delay-2" data-type="Twists" data-duration="2-5h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/8bcfaf0e8d4b73463017c620205a54a2.jpg" alt="Senegalese Twists" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Senegalese Twists</h3>
+            <p class="service-tagline">Silky rope twists with swing and shine.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Smooth, lightweight twists that move beautifully.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Senegalese%20Twists*%20%28from%20%24190%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/8bcfaf0e8d4b73463017c620205a54a2.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 10. Fulani Braids -->
+        <article class="service-card reveal" data-type="Braids" data-duration="2-5h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/8ebf745e9818fd3a85ad26390cb9c5e9.jpg" alt="Creative Stitch Braids" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Creative Stitch Braids</h3>
+            <p class="service-tagline">Intricate patterns, flawless execution.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Custom stitch braids featuring unique geometric parts.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Creative%20Stitch%20Braids*%20%28from%20%24210%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/8ebf745e9818fd3a85ad26390cb9c5e9.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 11. Micro Braids -->
+        <article class="service-card reveal reveal-delay-1" data-type="Braids" data-duration="5h+" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/9b4ecd4e3ebddbacd264f0a900a77b40.jpg" alt="Curly Sew-In" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Curly Sew-In</h3>
+            <p class="service-tagline">Maximum volume, seamless blend.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">5h+</span>
+              
+            </div>
+            <p class="service-desc">A flawless install featuring deep wave or curly textures.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Curly%20Sew-In*%20%28from%20%24300%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/9b4ecd4e3ebddbacd264f0a900a77b40.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 12. Updos & Bridal -->
+        <article class="service-card reveal reveal-delay-2" data-type="Braids" data-duration="Under 2h" data-featured="true" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/9be1e3e6749f0540abd5a51200ec1ea6.jpg" alt="Straight Back Stitch Braids" loading="lazy" />
+            <span class="featured-badge">Featured</span>
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Straight Back Stitch Braids</h3>
+            <p class="service-tagline">Clean lines, timeless elegance.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">Under 2h</span>
+              
+            </div>
+            <p class="service-desc">Perfectly parted straight back braids with flawlessly laid edges.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Straight%20Back%20Stitch%20Braids*%20%28from%20%24250%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/9be1e3e6749f0540abd5a51200ec1ea6.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 13. Silk Press -->
+        <article class="service-card reveal" data-type="Braids" data-duration="Under 2h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/9ec3e3b23a15134dcff675bd09215a9b.jpg" alt="Braided Space Buns" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Braided Space Buns</h3>
+            <p class="service-tagline">Playful, chic, and creative.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">Under 2h</span>
+              
+            </div>
+            <p class="service-desc">A stunning half-up style featuring two braided buns.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Braided%20Space%20Buns*%20%28from%20%24120%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/9ec3e3b23a15134dcff675bd09215a9b.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 14. Scalp Treatment -->
+        <article class="service-card reveal reveal-delay-1" data-type="Twists" data-duration="Under 2h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/9fb20c75dafb2fb198ea1bcc44d34422.jpg" alt="Natural Flat Twists" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Natural Flat Twists</h3>
+            <p class="service-tagline">Gentle, protective, and stylish.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">Under 2h</span>
+              
+            </div>
+            <p class="service-desc">Beautiful flat twists styled on your natural hair.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Natural%20Flat%20Twists*%20%28from%20%2480%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/9fb20c75dafb2fb198ea1bcc44d34422.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 15. Wash & Go -->
+        <article class="service-card reveal reveal-delay-2" data-type="Braids" data-duration="Under 2h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/a4d73d98fa86a0812a3d005bcca5add1.jpg" alt="Small Knotless Braids" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Small Knotless Braids</h3>
+            <p class="service-tagline">Ultra-lightweight and versatile.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">Under 2h</span>
+              
+            </div>
+            <p class="service-desc">Fine, meticulously parted knotless braids for effortless styling.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Small%20Knotless%20Braids*%20%28from%20%2450%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/a4d73d98fa86a0812a3d005bcca5add1.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 16. Color & Highlights -->
+        <article class="service-card reveal" data-type="Braids" data-duration="2-5h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/a59f341292df4f094eb95000fab05449.jpg" alt="Fulani Braids" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Fulani Braids</h3>
+            <p class="service-tagline">Heritage-forward, elegant flow.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Classic center-parted Fulani braids with face-framing pieces.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Fulani%20Braids*%20%28from%20%24150%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/a59f341292df4f094eb95000fab05449.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 17. Stitch Braids -->
+        <article class="service-card reveal reveal-delay-1" data-type="Braids" data-duration="2-5h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/ac261234a7a8cac32aa50cb79b8c5567.jpg" alt="Accent Braids and Curls" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Accent Braids &amp; Curls</h3>
+            <p class="service-tagline">A touch of braiding, full volume.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Flowing wavy hair elevated by delicate front accent braids.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Accent%20Braids%20%26%20Curls*%20%28from%20%24130%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/ac261234a7a8cac32aa50cb79b8c5567.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 18. Tribal Braids -->
+        <article class="service-card reveal reveal-delay-2" data-type="Braids" data-duration="2-5h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/aebf821a81875cc0d2a114d96dc144a8.jpg" alt="Freestyle Stitch Braids" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Freestyle Stitch Braids</h3>
+            <p class="service-tagline">Intricate, custom artistry.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">2–5h</span>
+              
+            </div>
+            <p class="service-desc">Bold, geometric stitch braiding showcasing unmatched skill.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Freestyle%20Stitch%20Braids*%20%28from%20%24230%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/aebf821a81875cc0d2a114d96dc144a8.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- 19. Trim & Cut -->
+        <article class="service-card reveal" data-type="Braids" data-duration="Under 2h" role="listitem">
+          <div class="service-img-wrap">
+            <img src="image/hairstyle/b1ae7d7f08ab41d732cc65edc8c42ec2.jpg" alt="Short Box Braids" loading="lazy" />
+          </div>
+          <div class="service-body">
+            <h3 class="service-name">Short Box Braids</h3>
+            <p class="service-tagline">Clean, sharp, and perfectly parted.</p>
+            <div class="badge-row">
+              <span class="badge badge-duration">Under 2h</span>
+              
+            </div>
+            <p class="service-desc">Crisp square parts for a classic short braided look.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Short%20Box%20Braids*%20%28from%20%2440%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/b1ae7d7f08ab41d732cc65edc8c42ec2.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+          </div>
+        </article>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="no-results" role="status" aria-live="polite">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <p>No services match your current filters.<br><button onclick="resetFilters()" style="color:var(--gold-500);font-weight:600;background:none;border:none;cursor:pointer;font-size:15px;margin-top:8px;">Clear filters</button></p>
+        </div>
+
+      </div><!-- /services-grid -->
+    </div><!-- /section-inner -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONSULTATION BAND
+  ════════════════════════════════════════════ -->
+  <section class="consult-band" aria-label="Free consultation offer">
+    <div class="consult-inner">
+      <h2 class="reveal">Not sure which style suits you?</h2>
+      <p class="reveal reveal-delay-1">Book a free 15-min consultation.</p>
+      <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20love%20a%20free%2015-min%20consultation%20at%20Louis%20African%20Hair%20Braiding%20%F0%9F%92%9B%20Can%20you%20let%20me%20know%20your%20next%20available%20slot%3F" target="_blank" rel="noreferrer" class="btn-cta-gold reveal reveal-delay-2">
+        💬 Book Free Consultation
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PRODUCTS SECTION
+  ════════════════════════════════════════════ -->
+  <section id="products-section" aria-label="Products catalogue">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Products</h2>
+      <p class="section-subtitle reveal reveal-delay-1">Wigs and premium extensions — delivered to you.</p>
+
+      <!-- Sub-tab Bar -->
+      <div class="sub-tab-bar" role="tablist" aria-label="Product categories">
+        <button class="sub-tab active" data-subtab="wigs" role="tab" aria-selected="true">Wigs</button>
+        <button class="sub-tab" data-subtab="extensions" role="tab" aria-selected="false">Extensions</button>
+      </div>
+
+      <!-- Products Grid Container -->
+      <div class="products-grid" id="products-grid">
+
+        <!-- ── WIGS PANEL ── -->
+        <div class="product-tab-panel active" data-panel="wigs" style="display:contents;">
+
+          <!-- Nala -->
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/hairstyle/b96d2c0060bf766971189bd7e5c4ea48.jpg" alt="Nala wig" loading="lazy" />
+              <span class="product-badge bestseller">Bestseller</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Nala</h3>
+              <p class="product-fullname">22" Body Wave Lace Front</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#6b3a2a;" data-color-name="Medium Brown" title="Medium Brown"></span>
+                <span class="swatch" style="background:#c8912a;" data-color-name="Honey Blonde" title="Honey Blonde"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Nala*%20wig%20%2822%22%20Body%20Wave%20Lace%20Front%2C%20%24349%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/hairstyle/b96d2c0060bf766971189bd7e5c4ea48.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+          <!-- Yara -->
+          <article class="product-card reveal reveal-delay-1" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/hairstyle/c9f8ec1c34cbcbf268584f6ebaf26659.jpg" alt="Yara wig" loading="lazy" />
+              <span class="product-badge new-badge">New</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Yara</h3>
+              <p class="product-fullname">20" Deep Wave Full Lace</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#8b3a2a;" data-color-name="Auburn" title="Auburn"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Yara*%20wig%20%2820%22%20Deep%20Wave%20Full%20Lace%2C%20%24499%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/hairstyle/c9f8ec1c34cbcbf268584f6ebaf26659.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+          <!-- Zuri -->
+          <article class="product-card reveal reveal-delay-2" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/hairstyle/dc4cf80814364027eef995cafc108761.jpg" alt="Zuri wig" loading="lazy" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Zuri</h3>
+              <p class="product-fullname">24" Straight HD Lace</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#6b3a2a;" data-color-name="Medium Brown" title="Medium Brown"></span>
+                <span class="swatch" style="background:#c8912a;" data-color-name="Honey Blonde" title="Honey Blonde"></span>
+                <span class="swatch" style="background:#e8dcc8;" data-color-name="Natural" title="Natural"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Zuri*%20wig%20%2824%22%20Straight%20HD%20Lace%2C%20%24429%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/hairstyle/dc4cf80814364027eef995cafc108761.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+          <!-- Aaliyah -->
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/hairstyle/dccaa9c0a1385c6063096a7ca9596b91.jpg" alt="Aaliyah wig" loading="lazy" />
+              <span class="product-badge bestseller">Bestseller</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Aaliyah</h3>
+              <p class="product-fullname">18" Curly Glueless</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#6b3a2a;" data-color-name="Medium Brown" title="Medium Brown"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Aaliyah*%20wig%20%2818%22%20Curly%20Glueless%2C%20%24369%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/hairstyle/dccaa9c0a1385c6063096a7ca9596b91.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+          <!-- Amara -->
+          <article class="product-card reveal reveal-delay-1" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/hairstyle/e35a6cde315efd14477a2fa43764f961.jpg" alt="Amara wig" loading="lazy" />
+              <span class="product-badge sale">Sale</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Amara</h3>
+              <p class="product-fullname">16" Kinky Curly Headband</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#8b3a2a;" data-color-name="Auburn" title="Auburn"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Amara*%20wig%20%2816%22%20Kinky%20Curly%20Headband%2C%20%24229%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/hairstyle/e35a6cde315efd14477a2fa43764f961.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+          <!-- Maya -->
+          <article class="product-card reveal reveal-delay-2" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/hairstyle/f3f7ac638559cc56b39dd0d28a02dd65.jpg" alt="Maya wig" loading="lazy" />
+              <span class="product-badge bestseller">Bestseller</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Maya</h3>
+              <p class="product-fullname">22" Curly Lace Front</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#6b3a2a;" data-color-name="Medium Brown" title="Medium Brown"></span>
+                <span class="swatch" style="background:#8b3a2a;" data-color-name="Auburn" title="Auburn"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Maya*%20wig%20%2822%22%20Curly%20Lace%20Front%2C%20%24379%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/hairstyle/f3f7ac638559cc56b39dd0d28a02dd65.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+        </div><!-- /wigs panel -->
+
+        <!-- ── EXTENSIONS PANEL ── -->
+        <div class="product-tab-panel" data-panel="extensions" style="display:none;">
+
+          <!-- Anika -->
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/hairstyle/fd7129cacc9d15eb9c9afaaa3a92c28a.jpg" alt="Anika extensions" loading="lazy" />
+              <span class="product-badge bestseller">Bestseller</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Anika</h3>
+              <p class="product-fullname">22" Silky Straight Tape-In Set</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#6b3a2a;" data-color-name="Medium Brown" title="Medium Brown"></span>
+                <span class="swatch" style="background:#c8912a;" data-color-name="Honey Blonde" title="Honey Blonde"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Anika*%20extensions%20%2822%22%20Silky%20Straight%20Tape-In%20Set%2C%20%24399%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/hairstyle/fd7129cacc9d15eb9c9afaaa3a92c28a.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+          <!-- Temi -->
+          <article class="product-card reveal reveal-delay-1" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/hairstyle/ff8a82d61aa1655366efff97487c4138.jpg" alt="Temi clip-in extensions" loading="lazy" />
+              <span class="product-badge sale">Sale</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Temi</h3>
+              <p class="product-fullname">18" Clip-In Set (7 Pieces)</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#6b3a2a;" data-color-name="Medium Brown" title="Medium Brown"></span>
+                <span class="swatch" style="background:#c8912a;" data-color-name="Honey Blonde" title="Honey Blonde"></span>
+                <span class="swatch" style="background:#8b3a2a;" data-color-name="Auburn" title="Auburn"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Temi*%20clip-in%20extensions%20%2818%22%20Clip-In%20Set%207%20Pieces%2C%20%24189%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/hairstyle/ff8a82d61aa1655366efff97487c4138.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+          <!-- Dayo -->
+          <article class="product-card reveal reveal-delay-2" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/wings/01ac75717460e83560a7a588d8bcf0fe.jpg" alt="Dayo keratin extensions" loading="lazy" />
+              <span class="product-badge new-badge">New</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Dayo</h3>
+              <p class="product-fullname">20" I-Tip Keratin Set</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#6b3a2a;" data-color-name="Medium Brown" title="Medium Brown"></span>
+                <span class="swatch" style="background:#c8912a;" data-color-name="Honey Blonde" title="Honey Blonde"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Dayo*%20extensions%20%2820%22%20I-Tip%20Keratin%20Set%2C%20%24449%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/wings/01ac75717460e83560a7a588d8bcf0fe.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+          <!-- Chisom -->
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/wings/0cd3d7da7db1e0126a6822e5409eb75d.jpg" alt="Chisom micro-link extensions" loading="lazy" />
+              <span class="product-badge bestseller">Bestseller</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Chisom</h3>
+              <p class="product-fullname">18" Micro-Link Bead Set</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#6b3a2a;" data-color-name="Medium Brown" title="Medium Brown"></span>
+                <span class="swatch" style="background:#c8912a;" data-color-name="Honey Blonde" title="Honey Blonde"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Chisom*%20extensions%20%2818%22%20Micro-Link%20Bead%20Set%2C%20%24469%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/wings/0cd3d7da7db1e0126a6822e5409eb75d.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+          <!-- Fatou -->
+          <article class="product-card reveal reveal-delay-1" role="listitem">
+            <div class="product-img-wrap">
+              <img src="image/wings/1128fee14ac8b69d67305d844a1be565.jpg" alt="Fatou ponytail extension" loading="lazy" />
+              <span class="product-badge new-badge">New</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Fatou</h3>
+              <p class="product-fullname">22" Clip-In Ponytail Extension</p>
+              
+              <div class="swatches" aria-label="Color options">
+                <span class="swatch" style="background:#1a1a1a;" data-color-name="Black" title="Black"></span>
+                <span class="swatch" style="background:#3b2314;" data-color-name="Dark Brown" title="Dark Brown"></span>
+                <span class="swatch" style="background:#6b3a2a;" data-color-name="Medium Brown" title="Medium Brown"></span>
+                <span class="swatch" style="background:#c8912a;" data-color-name="Honey Blonde" title="Honey Blonde"></span>
+                <span class="swatch" style="background:#8b3a2a;" data-color-name="Auburn" title="Auburn"></span>
+              </div>
+              <a href="https://wa.me/16812839575?text=Hi!%20I%27m%20interested%20in%20the%20*Fatou*%20ponytail%20extension%20%2822%22%20Clip-In%20Ponytail%2C%20%24129%29%20%F0%9F%92%9B%0AWhat%20colors%20do%20you%20have%20in%20stock%3F" data-wa-img="image/wings/1128fee14ac8b69d67305d844a1be565.jpg" target="_blank" rel="noreferrer" class="btn-add-cart">💬 Order on WhatsApp</a>
+            </div>
+          </article>
+
+        </div><!-- /extensions panel -->
+
+
+
+      </div><!-- /products-grid -->
+    </div><!-- /section-inner -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-grid">
+      <!-- Brand col -->
+      <div class="footer-brand">
+        <h3>Louis African Hair Braiding</h3>
+        <p>722 Foxcroft Avenue<br>Martinsburg, WV</p>
+        <p style="margin-top:8px;">Tel: <a href="tel:+16812839575" style="color:var(--ink-200);">+1 681-283-9575</a></p>
+        <p>Email: <a href="mailto:hello@louisbraiding.com" style="color:var(--ink-200);">hello@louisbraiding.com</a></p>
+      </div>
+
+      <!-- Hours col -->
+      <div class="footer-col">
+        <button class="footer-accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+          <h4>Hours</h4>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <h4>Hours</h4>
+        <div class="footer-accordion-body">
+          <ul>
+            <li>Tue – Sat &nbsp; 9am – 7pm</li>
+            <li>Sun – Mon &nbsp; Closed</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Nav col -->
+      <div class="footer-col">
+        <button class="footer-accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+          <h4>Navigate</h4>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <h4>Navigate</h4>
+        <div class="footer-accordion-body">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Louis African Hair Braiding. All rights reserved.</span>
+      <span>Martinsburg, WV</span>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════ -->
+  <script>
+  /* ── LENIS SMOOTH SCROLL ── */
+  (function () {
+    if (typeof Lenis === 'undefined') return;
+    const lenis = new Lenis({ duration: 1.2, easing: t => 1 - Math.pow(1 - t, 4), smoothWheel: true });
+    window.__lenis = lenis;
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80, duration: 1.4 }); }
+      });
+    });
+  })();
+    /* ── STATE ── */
+    const activeFilters = { type: 'all', price: 'all', duration: 'all' };
+
+    /* ── CATEGORY SWITCHER ── */
+    const catTabs = document.querySelectorAll('.cat-tab');
+    const servicesSection = document.getElementById('services-section');
+    const productsSection = document.getElementById('products-section');
+
+    catTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        catTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-pressed', 'false'); });
+        tab.classList.add('active');
+        tab.setAttribute('aria-pressed', 'true');
+
+        const cat = tab.dataset.cat;
+        if (cat === 'services') {
+          servicesSection.style.display = '';
+          productsSection.style.display = 'none';
+        } else {
+          servicesSection.style.display = 'none';
+          productsSection.style.display = '';
+          triggerReveal();
+        }
+        // Smooth scroll to content
+        const switcher = document.getElementById('cat-switcher');
+        const offset = switcher.getBoundingClientRect().bottom + window.scrollY;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      });
+    });
+
+    /* ── PRODUCT SUB-TABS ── */
+    const subTabs = document.querySelectorAll('.sub-tab');
+    const panels = document.querySelectorAll('.product-tab-panel');
+
+    subTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        subTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const target = tab.dataset.subtab;
+        panels.forEach(p => {
+          if (p.dataset.panel === target) {
+            p.style.display = 'contents';
+            p.classList.add('active');
+          } else {
+            p.style.display = 'none';
+            p.classList.remove('active');
+          }
+        });
+        triggerReveal();
+      });
+    });
+
+    /* ── SERVICE FILTERS ── */
+    const filterPills = document.querySelectorAll('.filter-pill');
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const filterType = pill.dataset.filter;
+        const value = pill.dataset.value;
+
+        // Deactivate siblings
+        document.querySelectorAll(`.filter-pill[data-filter="${filterType}"]`).forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        activeFilters[filterType] = value;
+        applyFilters();
+      });
+    });
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('#services-grid .service-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const typeMatch  = activeFilters.type     === 'all' || card.dataset.type     === activeFilters.type;
+        const priceMatch = activeFilters.price    === 'all' || card.dataset.price    === activeFilters.price;
+        const durMatch   = activeFilters.duration === 'all' || card.dataset.duration === activeFilters.duration;
+
+        if (typeMatch && priceMatch && durMatch) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const noResults = document.getElementById('no-results');
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    function resetFilters() {
+      activeFilters.type     = 'all';
+      activeFilters.price    = 'all';
+      activeFilters.duration = 'all';
+
+      filterPills.forEach(pill => {
+        pill.classList.toggle('active', pill.dataset.value === 'all');
+      });
+      applyFilters();
+    }
+
+    /* ── ADD TO CART ── */
+    function addToCart(btn) {
+      btn.classList.add('added');
+      btn.textContent = 'Added ✓';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.classList.remove('added');
+        btn.textContent = 'Add to cart';
+        btn.disabled = false;
+      }, 2200);
+    }
+
+    /* ── FOOTER ACCORDION (mobile) ── */
+    function toggleAccordion(btn) {
+      const body = btn.nextElementSibling.nextElementSibling; // skip the desktop h4
+      const isOpen = btn.classList.contains('open');
+      btn.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      body.classList.toggle('open', !isOpen);
+    }
+
+    /* ── INTERSECTION OBSERVER (scroll reveal) ── */
+    function triggerReveal() {
+      const reveals = document.querySelectorAll('.reveal:not(.visible)');
+      reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ── STICKY NAVBAR OFFSET — push sticky category bar below fixed navbar ── */
+    (function setStickyOffset() {
+      const navbar = document.querySelector('.navbar');
+      const switcher = document.querySelector('.category-switcher-wrap');
+      if (navbar && switcher) {
+        const navH = navbar.offsetHeight + 16; // top offset of navbar
+        switcher.style.top = navH + 'px';
+      }
+    })();
+  </script>
+<script>
+  /* ── LENIS SMOOTH SCROLL ── */
+  (function () {
+    if (typeof Lenis === 'undefined') return;
+    const lenis = new Lenis({ duration: 1.2, easing: t => 1 - Math.pow(1 - t, 4), smoothWheel: true });
+    window.__lenis = lenis;
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80, duration: 1.4 }); }
+      });
+    });
+  })();(function(){var b=window.location.origin+window.location.pathname.replace(/\/[^\/]*$/,"");document.querySelectorAll("a[data-wa-img]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var u=b+"/"+a.getAttribute("data-wa-img");window.open(a.getAttribute("href")+"%0A%F0%9F%93%B8%20"+encodeURIComponent(u),"_blank","noreferrer");});});})();</script>  <script src="animations.js" defer></script>
+  <script src="parallax.js" defer></script>
+</body>
+</html>

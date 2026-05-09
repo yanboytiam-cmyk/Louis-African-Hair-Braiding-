@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HD Lace Wigs · Louis African Hair Braiding</title>
+<meta name="description" content="Ultra-thin HD lace for flash photography and close-ups. Book your HD Lace Wig installation at Louis African Hair Braiding in Martinsburg." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<style>
+:root {
+  --gold-300:#dbc178; --gold-400:#c9a961; --gold-500:#b8923f; --gold-600:#9a7a30; --gold-700:#7a5f22;
+  --ink-900:#0f0e0b; --ink-800:#1f1c16; --ink-600:#423d33; --ink-400:#8a8175;
+  --white-warm:#fdfcf9; --cream:#faf6ec; --pearl:#f2ede0;
+  --glass-white-soft:rgba(255,255,255,0.55); --glass-gold-soft:rgba(201,169,97,0.18);
+  --border-gold-soft:rgba(201,169,97,0.3); --border-white-soft:rgba(255,255,255,0.4);
+  --shadow-soft:0 8px 32px -8px rgba(15,14,11,0.08);
+  --shadow-card:0 20px 60px -20px rgba(15,14,11,0.15);
+  --r-sm:10px; --r-md:16px; --r-lg:24px; --r-xl:32px; --r-full:9999px;
+  --font-display:'Fraunces',serif; --font-sans:'Inter',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body{font-family:var(--font-sans);background:var(--white-warm);color:var(--ink-900);overflow-x:hidden;}
+img{max-width:100%;height:auto;} a{text-decoration:none;color:inherit;} button{cursor:pointer;border:none;background:none;font-family:inherit;}
+.container{max-width:1280px;margin:0 auto;padding:0 1.5rem;}
+@media(min-width:768px){.container{padding:0 2.5rem;}}
+@media(min-width:1024px){.container{padding:0 4rem;}}
+.glass-gold{background:linear-gradient(135deg,var(--glass-gold-soft),var(--glass-white-soft));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid var(--border-gold-soft);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 12px 40px -12px rgba(15,14,11,.1);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.1s;} .reveal-delay-2{transition-delay:.2s;} .reveal-delay-3{transition-delay:.35s;} .reveal-delay-4{transition-delay:.5s;}
+#navbar{position:fixed;top:2rem;left:50%;transform:translateX(-50%);z-index:100;}
+.nav-inner{display:flex;align-items:center;gap:.5rem;border-radius:var(--r-full);border:1px solid rgba(255,255,255,.1);background:rgba(22,28,45,.65);padding:.75rem 1rem;box-shadow:0 8px 32px rgba(0,0,0,.3);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);}
+.nav-item{position:relative;display:flex;align-items:center;justify-content:center;width:3.25rem;height:3.25rem;border-radius:var(--r-full);transition:background .2s;}
+.nav-item svg{width:20px;height:20px;stroke:var(--gold-400);fill:none;stroke-width:2;transition:stroke .2s;}
+.nav-item:hover{background:rgba(255,255,255,.08);} .nav-item:hover svg{stroke:var(--gold-200);}
+.nav-item.active{background:var(--gold-400);box-shadow:0 0 20px rgba(201,169,97,.4);} .nav-item.active svg{stroke:#fff;}
+.nav-tooltip{position:absolute;bottom:-2.25rem;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-200);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;background:rgba(22,28,45,.8);padding:.25rem .5rem;border-radius:4px;}
+.nav-item:hover .nav-tooltip{opacity:1;}
+#hero{position:relative;min-height:80vh;overflow:hidden;background:var(--ink-900);display:flex;flex-direction:column;justify-content:flex-end;}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit: cover; object-position: center 20%;opacity:.6;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,14,11,.45) 0%,rgba(15,14,11,.3) 40%,rgba(15,14,11,.85) 100%);}
+.hero-content{position:relative;z-index:2;padding:8rem 0 5rem;}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:1.25rem;}
+.breadcrumb a{color:rgba(255,255,255,.55);transition:color .2s;} .breadcrumb a:hover{color:var(--gold-300);} .breadcrumb span{color:rgba(255,255,255,.35);}
+.category-pill{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,169,97,.18);border:1px solid rgba(201,169,97,.35);border-radius:var(--r-full);padding:.35rem .9rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-300);margin-bottom:1.5rem;}
+.hero-title{font-family:var(--font-display);font-size:clamp(2.8rem,8vw,7rem);font-weight:300;line-height:1.02;letter-spacing:-.03em;color:#fff;margin-bottom:1rem;opacity:0;animation:heroReveal .9s .2s cubic-bezier(.16,1,.3,1) forwards;}
+.hero-tagline{font-size:clamp(1rem,2vw,1.3rem);color:rgba(255,255,255,.7);margin-bottom:2rem;font-weight:300;}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2.5rem;}
+.badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-full);padding:.4rem 1rem;font-size:.8rem;color:rgba(255,255,255,.85);}
+.badge svg{width:14px;height:14px;stroke:var(--gold-400);stroke-width:2;fill:none;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;}
+.btn-gold{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;border-radius:var(--r-full);padding:.85rem 2rem;font-size:.9rem;font-weight:600;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(201,169,97,.35);}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,97,.5);}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25);border-radius:var(--r-full);padding:.85rem 1.75rem;font-size:.9rem;font-weight:500;transition:all .2s;}
+.btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06);}
+@keyframes heroReveal{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:none;}}
+#description{background:var(--white-warm);padding:6rem 0;}
+.desc-grid{display:grid;gap:3rem;align-items:start;}
+@media(min-width:1024px){.desc-grid{grid-template-columns:1fr 380px;gap:4rem;}}
+.desc-text h2{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:400;letter-spacing:-.02em;margin-bottom:1.25rem;}
+.desc-text p{font-size:1.05rem;line-height:1.75;color:var(--ink-600);margin-bottom:2rem;}
+.feature-list{display:flex;flex-direction:column;gap:.85rem;}
+.feature-item{display:flex;align-items:center;gap:.85rem;font-size:.95rem;color:var(--ink-600);}
+.feature-check{width:22px;height:22px;background:linear-gradient(135deg,var(--gold-400),var(--gold-500));border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.feature-check svg{width:12px;height:12px;stroke:#fff;stroke-width:2.5;fill:none;}
+.info-card{border-radius:var(--r-xl);padding:2rem;position:sticky;top:7rem;}
+.info-card h3{font-family:var(--font-display);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem;}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:.85rem 0;border-bottom:1px solid rgba(15,14,11,.07);}
+.info-row:last-of-type{border-bottom:none;}
+.info-label{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400);}
+.info-value{font-size:.95rem;font-weight:600;color:var(--ink-900);}
+.info-price{font-family:var(--font-display);font-size:1.8rem;font-weight:300;color:var(--gold-500);}
+.btn-gold-full{display:flex;align-items:center;justify-content:center;gap:.5rem;background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;border-radius:var(--r-full);padding:.9rem 1.75rem;font-size:.9rem;font-weight:600;width:100%;margin-top:1.5rem;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(201,169,97,.3);}
+.btn-gold-full:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,169,97,.5);}
+#variants{background:var(--cream);padding:6rem 0;}
+.section-header{text-align:center;margin-bottom:3.5rem;}
+.section-eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-500);margin-bottom:.75rem;}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:400;letter-spacing:-.02em;color:var(--ink-900);}
+.variants-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
+.variant-card{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/4;cursor:pointer;box-shadow:var(--shadow-card);}
+.variant-card img{width:100%;height:100%;object-fit: cover; object-position: top;transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.variant-card:hover img{transform:scale(1.06);}
+.variant-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,14,11,.75) 0%,rgba(15,14,11,.1) 60%);display:flex;align-items:flex-end;padding:1.5rem;}
+.variant-label{font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:#fff;letter-spacing:-.01em;}
+#pricing{background:var(--white-warm);padding:6rem 0;}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:1rem;}
+.pricing-card{background:#fff;border:1px solid rgba(15,14,11,.08);border-radius:var(--r-xl);padding:2.25rem;transition:transform .25s,box-shadow .25s;position:relative;}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card);}
+.pricing-card.featured{border:2px solid var(--gold-400);box-shadow:0 0 0 1px rgba(201,169,97,.2),0 20px 60px -20px rgba(201,169,97,.25);}
+.pricing-card.featured::before{content:'Premium';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.3rem 1rem;border-radius:0 0 var(--r-sm) var(--r-sm);}
+.tier-name{font-family:var(--font-display);font-size:1.35rem;font-weight:400;color:var(--ink-900);margin-bottom:.5rem;}
+.tier-price{font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--gold-500);line-height:1;margin-bottom:.25rem;}
+.tier-duration{font-size:.8rem;color:var(--ink-400);letter-spacing:.05em;margin-bottom:1rem;}
+.tier-desc{font-size:.9rem;color:var(--ink-600);line-height:1.6;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(15,14,11,.07);}
+.btn-tier{display:flex;align-items:center;justify-content:center;gap:.4rem;border-radius:var(--r-full);padding:.75rem 1.5rem;font-size:.85rem;font-weight:600;transition:all .2s;}
+.pricing-card.featured .btn-tier{background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;box-shadow:0 4px 16px rgba(201,169,97,.3);}
+.pricing-card.featured .btn-tier:hover{box-shadow:0 8px 24px rgba(201,169,97,.5);transform:translateY(-1px);}
+.pricing-card:not(.featured) .btn-tier{border:1.5px solid var(--gold-400);color:var(--gold-600);}
+.pricing-card:not(.featured) .btn-tier:hover{background:var(--gold-400);color:#fff;}
+#faq{background:var(--cream);padding:6rem 0;}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:.75rem;}
+.faq-item{background:#fff;border:1px solid rgba(15,14,11,.08);border-radius:var(--r-md);overflow:hidden;}
+.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 1.75rem;font-size:1rem;font-weight:600;color:var(--ink-900);text-align:left;background:none;border:none;cursor:pointer;transition:color .2s;}
+.faq-question:hover{color:var(--gold-600);}
+.faq-icon{width:22px;height:22px;flex-shrink:0;border:1.5px solid var(--gold-400);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .35s,background .2s;}
+.faq-icon svg{width:10px;height:10px;stroke:var(--gold-500);stroke-width:2.5;fill:none;}
+.faq-item.open .faq-icon{background:var(--gold-400);transform:rotate(45deg);}
+.faq-item.open .faq-icon svg{stroke:#fff;}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1);}
+.faq-answer-inner{padding:0 1.75rem 1.4rem;font-size:.95rem;color:var(--ink-600);line-height:1.7;}
+#cta{background:var(--ink-900);padding:7rem 0;text-align:center;}
+.cta-eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-400);margin-bottom:1rem;}
+.cta-title{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:#fff;letter-spacing:-.02em;margin-bottom:1rem;}
+.cta-sub{font-size:1rem;color:rgba(255,255,255,.5);margin-bottom:2.5rem;}
+.btn-gold-pulse{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;border-radius:var(--r-full);padding:1rem 2.25rem;font-size:1rem;font-weight:600;animation:pulse 2.5s infinite;}
+.btn-gold-pulse:hover{animation:none;box-shadow:0 8px 32px rgba(201,169,97,.55);transform:translateY(-2px);}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,169,97,.4);}50%{box-shadow:0 0 0 14px rgba(201,169,97,0);}}
+.cta-back{display:inline-flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.4);font-size:.875rem;margin-top:1.75rem;transition:color .2s;}
+.cta-back:hover{color:rgba(255,255,255,.75);}
+footer{background:var(--ink-800);color:rgba(255,255,255,.6);padding:4rem 0 2rem;}
+.footer-grid{display:grid;gap:2.5rem;margin-bottom:3rem;}
+@media(min-width:768px){.footer-grid{grid-template-columns:repeat(3,1fr);}}
+.footer-col h4{font-family:var(--font-display);font-size:1.05rem;font-weight:400;color:rgba(255,255,255,.85);margin-bottom:1rem;}
+.footer-col p,.footer-col a{font-size:.875rem;line-height:1.8;color:rgba(255,255,255,.5);}
+.footer-col a:hover{color:var(--gold-300);}
+.newsletter-form{display:flex;gap:.5rem;margin-top:1rem;}
+.newsletter-input{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-full);padding:.65rem 1.1rem;font-size:.85rem;color:#fff;outline:none;font-family:var(--font-sans);}
+.newsletter-input::placeholder{color:rgba(255,255,255,.35);}
+.newsletter-input:focus{border-color:rgba(201,169,97,.4);}
+.newsletter-btn{background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;border:none;border-radius:var(--r-full);padding:.65rem 1.1rem;font-size:.8rem;font-weight:600;cursor:pointer;transition:opacity .2s;}
+.newsletter-btn:hover{opacity:.88;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.75rem;font-size:.8rem;color:rgba(255,255,255,.3);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem;}
+.gold-dot{color:var(--gold-400);}
+@media(max-width:767px){
+  .footer-col-toggle{cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+  .footer-col-toggle svg{width:16px;height:16px;stroke:rgba(255,255,255,.4);fill:none;stroke-width:2;transition:transform .3s;}
+  .footer-col.open .footer-col-toggle svg{transform:rotate(180deg);}
+  .footer-col-body{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1);}
+  .footer-col.open .footer-col-body{max-height:300px;}
+}
+@media(min-width:768px){.footer-col-toggle svg{display:none;} .footer-col-body{max-height:none!important;overflow:visible;}}
+</style>
+
+
+
+
+<style id="global-overlap-fixes">
+  /* 1. Reduce hero section by 50% */
+  #hero, .hero, header[class*="hero"] {
+    min-height: 65svh !important;
+    border-radius: 0 0 clamp(1.5rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3.5rem) !important;
+    margin-bottom: -3rem !important;
+    padding-bottom: 4rem !important;
+    z-index: 50 !important;
+    position: relative !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12) !important;
+  }
+
+  /* Reduce inner padding of hero so it CAN shrink */
+  .hero-content {
+    min-height: 65svh !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .hero-bridge {
+    height: 4rem !important;
+  }
+
+  /* 2. Overlapping rounded sections */
+  section {
+    border-radius: 0 0 clamp(1.5rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3.5rem) !important;
+    margin-bottom: -3rem !important;
+    padding-top: 8rem !important; 
+    padding-bottom: 8rem !important;
+    position: relative !important;
+    box-shadow: 0 -5px 40px rgba(0,0,0,0.02), 0 15px 40px rgba(0,0,0,0.06) !important;
+    background-clip: padding-box !important;
+  }
+
+  /* 3. Footer protection */
+  footer {
+    position: relative !important;
+    z-index: 10 !important;
+    padding-top: 8rem !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* 4. Z-index stacking */
+  main { z-index: 30 !important; position: relative !important; }
+  
+  body > section:nth-of-type(1), main > section:nth-of-type(1) { z-index: 45 !important; }
+  body > section:nth-of-type(2), main > section:nth-of-type(2) { z-index: 44 !important; }
+  body > section:nth-of-type(3), main > section:nth-of-type(3) { z-index: 43 !important; }
+  body > section:nth-of-type(4), main > section:nth-of-type(4) { z-index: 42 !important; }
+  body > section:nth-of-type(5), main > section:nth-of-type(5) { z-index: 41 !important; }
+  body > section:nth-of-type(6), main > section:nth-of-type(6) { z-index: 40 !important; }
+  body > section:nth-of-type(7), main > section:nth-of-type(7) { z-index: 39 !important; }
+  body > section:nth-of-type(8), main > section:nth-of-type(8) { z-index: 38 !important; }
+  body > section:nth-of-type(9), main > section:nth-of-type(9) { z-index: 37 !important; }
+  body > section:nth-of-type(10), main > section:nth-of-type(10) { z-index: 36 !important; }
+  body > section:nth-of-type(11), main > section:nth-of-type(11) { z-index: 35 !important; }
+  body > section:nth-of-type(12), main > section:nth-of-type(12) { z-index: 34 !important; }
+  body > section:nth-of-type(13), main > section:nth-of-type(13) { z-index: 33 !important; }
+  body > section:nth-of-type(14), main > section:nth-of-type(14) { z-index: 32 !important; }
+  body > section:nth-of-type(15), main > section:nth-of-type(15) { z-index: 31 !important; }
+  body > section:nth-of-type(16), main > section:nth-of-type(16) { z-index: 30 !important; }
+  body > section:nth-of-type(17), main > section:nth-of-type(17) { z-index: 29 !important; }
+  body > section:nth-of-type(18), main > section:nth-of-type(18) { z-index: 28 !important; }
+  body > section:nth-of-type(19), main > section:nth-of-type(19) { z-index: 27 !important; }
+  body > section:nth-of-type(20), main > section:nth-of-type(20) { z-index: 26 !important; }
+
+</style>
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+</head>
+<body>
+
+<nav id="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="services.html" class="nav-item active" aria-label="Services">
+      <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="nav-tooltip">Services</span>
+    </a>
+    <a href="catalogue.html" class="nav-item" aria-label="Catalogue">
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.57l1.65-7.43H5.12"/></svg>
+      <span class="nav-tooltip">Catalogue</span>
+    </a>
+    <a href="index.html" class="nav-item" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="nav-tooltip">Home</span>
+    </a>
+    <a href="about.html" class="nav-item" aria-label="About">
+      <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      <span class="nav-tooltip">About</span>
+    </a>
+    <a href="contact.html" class="nav-item" aria-label="Contact">
+      <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <span class="nav-tooltip">Contact</span>
+    </a>
+  </div>
+</nav>
+
+<section id="hero">
+  <video class="hero-bg" autoplay loop muted playsinline poster="image/hairstyle/790350741d0a6fe96d38a87ea84e12b1.jpg" style="object-position: center 20%; width: 100%; height: 100%; object-fit: cover;"><source src="video/favorite%20style%2C%20favorite%20season%2C%20favorite%20braider!%20plaits%20for%20the%20summer%F0%9F%98%AE%E2%80%8D%F0%9F%92%A8%20%23mensbraids%20%23summer%20%23atlanta%20%23blackman_2.mp4" type="video/mp4" /></video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span>›</span><a href="services.html">Services</a><span>›</span><span style="color:rgba(255,255,255,.75);">HD Lace Wigs</span>
+      </nav>
+      <div class="category-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Wigs &amp; Extensions
+      </div>
+      <h1 class="hero-title">HD Lace<br>Wigs</h1>
+      <p class="hero-tagline">Disappearing lace for camera-ready looks.</p>
+      <div class="hero-badges">
+        
+      </div>
+      <div class="hero-actions">
+        <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20an%20*HD%20Lace%20Wig%20Install*%20at%20Louis%20African%20Hair%20Braiding%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/8bcfaf0e8d4b73463017c620205a54a2.jpg" target="_blank" rel="noreferrer" class="btn-gold">💬 Book This Service <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="services.html" class="btn-ghost"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> View all services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="description">
+  <div class="container">
+    <div class="desc-grid">
+      <div class="desc-text reveal">
+        <h2>About this service</h2>
+        <p>Ultra-thin HD lace for flash photography and close-ups. HD (High Definition) lace is the finest, most transparent lace available — it literally disappears on any skin tone for the most natural-looking hairline possible.</p>
+        <div class="feature-list">
+          <div class="feature-item"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Ultra-thin HD lace</div>
+          <div class="feature-item"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Transparent on any skin tone</div>
+          <div class="feature-item"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Camera-ready finish</div>
+          <div class="feature-item"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Heat-styleable</div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="info-card glass-gold">
+          <h3>Quick Info</h3>
+          <div class="info-row"><span class="info-label">Duration</span><span class="info-value">3–4 hours</span></div>
+          
+          <div class="info-row"><span class="info-label">Category</span><span class="info-value">Wigs &amp; Extensions</span></div>
+          <div class="info-row"><span class="info-label">Lace type</span><span class="info-value">HD Ultra-Thin</span></div>
+          <a href="tel:+16812839575" class="btn-gold-full">📞 Call to Book</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="variants">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Explore the range</p>
+      <h2 class="section-title">Available styles</h2>
+    </div>
+    <div class="variants-grid">
+      <div class="variant-card reveal reveal-delay-1">
+        <img src="image/hairstyle/8bcfaf0e8d4b73463017c620205a54a2.jpg" alt="HD Lace Straight" loading="lazy" />
+        <div class="variant-overlay"><span class="variant-label">HD Lace Straight</span></div>
+      </div>
+      <div class="variant-card reveal reveal-delay-2">
+        <img src="image/hairstyle/8ebf745e9818fd3a85ad26390cb9c5e9.jpg" alt="HD Lace Body Wave" loading="lazy" />
+        <div class="variant-overlay"><span class="variant-label">HD Lace Body Wave</span></div>
+      </div>
+      <div class="variant-card reveal reveal-delay-3">
+        <img src="image/hairstyle/9b4ecd4e3ebddbacd264f0a900a77b40.jpg" alt="HD Lace Deep Wave" loading="lazy" />
+        <div class="variant-overlay"><span class="variant-label">HD Lace Deep Wave</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Got questions?</p>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question">How long does the style last?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">With proper maintenance and nightly wrapping, your style can last 6–10 weeks.</div></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question">Do I need to bring my own hair?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We provide premium braiding hair. You can bring your preferred brand — pricing adjusts accordingly.</div></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-3">
+        <button class="faq-question">How should I prepare my hair?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Come with freshly washed, detangled hair. Avoid heavy products the night before.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">Is there a consultation before booking?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes — all first-time clients receive a complimentary 15-min consultation.</div></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question">Do you accommodate sensitive scalps?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Absolutely. Inform us at booking and we'll use tension-free methods.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="container">
+    <p class="cta-eyebrow reveal">Your crown awaits</p>
+    <h2 class="cta-title reveal reveal-delay-1">Ready for your<br>transformation?</h2>
+    <p class="cta-sub reveal reveal-delay-2">Join hundreds of satisfied clients who trust Louis for their protective styling.</p>
+    <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20an%20*HD%20Lace%20Wig%20Install*%20at%20Louis%20African%20Hair%20Braiding%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/8bcfaf0e8d4b73463017c620205a54a2.jpg" target="_blank" rel="noreferrer" class="btn-gold-pulse reveal reveal-delay-3">💬 Book Your Appointment <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <br>
+    <a href="services.html" class="cta-back reveal reveal-delay-4"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back to all services</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-col-toggle"><h4>Louis African Hair Braiding</h4><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="footer-col-body">
+          <p>722 Foxcroft Avenue<br>Martinsburg, WV 25401</p>
+          <p style="margin-top:.6rem;"><a href="tel:+16812839575">+1 681-283-9575</a><br><a href="mailto:hello@louisbraiding.com">hello@louisbraiding.com</a></p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-toggle"><h4>Hours</h4><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="footer-col-body">
+          <p>Tue – Sat &nbsp;<span style="color:rgba(255,255,255,.7);">9 am – 7 pm</span></p>
+          <p>Sun – Mon &nbsp;<span style="color:rgba(255,255,255,.35);">Closed</span></p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-toggle"><h4>Stay in touch</h4><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="footer-col-body">
+          <p>Get styling tips &amp; exclusive offers.</p>
+          <form class="newsletter-form" onsubmit="return false;"><input class="newsletter-input" type="email" placeholder="your@email.com" aria-label="Email" /><button class="newsletter-btn" type="submit">Join</button></form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Louis African Hair Braiding <span class="gold-dot">·</span> All rights reserved</span>
+      <span><a href="privacy.html" style="color:rgba(255,255,255,.3);transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.6)'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── LENIS SMOOTH SCROLL ── */
+  (function () {
+    if (typeof Lenis === 'undefined') return;
+    const lenis = new Lenis({ duration: 1.2, easing: t => 1 - Math.pow(1 - t, 4), smoothWheel: true });
+    window.__lenis = lenis;
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80, duration: 1.4 }); }
+      });
+    });
+  })();
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-answer').style.maxHeight = '0'; });
+    if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+  });
+});
+document.querySelectorAll('.footer-col-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => { if (window.innerWidth >= 768) return; toggle.closest('.footer-col').classList.toggle('open'); });
+});
+</script>
+<script>
+  /* ── LENIS SMOOTH SCROLL ── */
+  (function () {
+    if (typeof Lenis === 'undefined') return;
+    const lenis = new Lenis({ duration: 1.2, easing: t => 1 - Math.pow(1 - t, 4), smoothWheel: true });
+    window.__lenis = lenis;
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80, duration: 1.4 }); }
+      });
+    });
+  })();(function(){var b=window.location.origin+window.location.pathname.replace(/\/[^\/]*$/,"");document.querySelectorAll("a[data-wa-img]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var u=b+"/"+a.getAttribute("data-wa-img");window.open(a.getAttribute("href")+"%0A%F0%9F%93%B8%20"+encodeURIComponent(u),"_blank","noreferrer");});});})();</script>  <script src="animations.js" defer></script>
+  <script src="parallax.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Goddess Locs · Louis African Hair Braiding</title>
+<meta name="description" content="Romantic faux locs with soft, wavy tips for a goddess aesthetic. Bohemian romance meets structured artistry at Louis African Hair Braiding." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<style>
+:root {
+  --gold-300:#dbc178;--gold-400:#c9a961;--gold-500:#b8923f;--gold-600:#9a7a30;--gold-700:#7a5f22;
+  --ink-900:#0f0e0b;--ink-800:#1f1c16;--ink-600:#423d33;--ink-400:#8a8175;
+  --white-warm:#fdfcf9;--cream:#faf6ec;--pearl:#f2ede0;
+  --glass-white-soft:rgba(255,255,255,0.55);--glass-gold-soft:rgba(201,169,97,0.18);
+  --border-gold-soft:rgba(201,169,97,0.3);--border-white-soft:rgba(255,255,255,0.4);
+  --shadow-soft:0 8px 32px -8px rgba(15,14,11,0.08);
+  --shadow-card:0 20px 60px -20px rgba(15,14,11,0.15);
+  --r-sm:10px;--r-md:16px;--r-lg:24px;--r-xl:32px;--r-full:9999px;
+  --font-display:'Fraunces',serif;--font-sans:'Inter',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body{font-family:var(--font-sans);background:var(--white-warm);color:var(--ink-900);overflow-x:hidden;}
+img{max-width:100%;height:auto;display:block;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;border:none;background:none;font-family:inherit;}
+.container{max-width:1280px;margin:0 auto;padding:0 1.5rem;}
+@media(min-width:768px){.container{padding:0 2.5rem;}}
+@media(min-width:1024px){.container{padding:0 4rem;}}
+.font-display{font-family:var(--font-display);}
+.glass-soft{background:var(--glass-white-soft);backdrop-filter:blur(24px) saturate(140%);-webkit-backdrop-filter:blur(24px) saturate(140%);border:1px solid var(--border-white-soft);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),var(--shadow-soft);}
+.glass-gold{background:linear-gradient(135deg,var(--glass-gold-soft),var(--glass-white-soft));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid var(--border-gold-soft);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 40px -10px rgba(201,169,97,.2);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.33s;}
+.reveal-delay-4{transition-delay:.46s;}
+#navbar{position:fixed;top:2rem;left:50%;transform:translateX(-50%);z-index:100;}
+.nav-inner{display:flex;align-items:center;gap:.5rem;border-radius:var(--r-full);border:1px solid rgba(255,255,255,.1);background:rgba(22,28,45,.65);padding:.75rem 1rem;box-shadow:0 8px 32px rgba(0,0,0,.3);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);}
+.nav-item{position:relative;display:flex;align-items:center;justify-content:center;width:3.25rem;height:3.25rem;border-radius:var(--r-full);transition:background .2s;}
+.nav-item svg{width:21px;height:21px;stroke:var(--gold-400);fill:none;stroke-width:2;transition:stroke .2s;}
+.nav-item:hover{background:rgba(255,255,255,.08);}
+.nav-item:hover svg{stroke:var(--gold-200);}
+.nav-item.active{background:var(--gold-400);box-shadow:0 0 20px rgba(201,169,97,.4);}
+.nav-item.active svg{stroke:#fff;}
+.nav-label{position:absolute;bottom:-2rem;left:50%;transform:translateX(-50%);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-200);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;}
+.nav-item:hover .nav-label{opacity:1;}
+#hero{position:relative;min-height:80vh;overflow:hidden;background:var(--ink-900);display:flex;flex-direction:column;justify-content:flex-end;}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit: cover; object-position: center 20%;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,14,11,.92) 0%,rgba(15,14,11,.55) 50%,rgba(15,14,11,.25) 100%);}
+.hero-content{position:relative;z-index:10;padding:8rem 0 5rem;}
+.breadcrumb{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,237,224,.5);margin-bottom:1.5rem;}
+.breadcrumb a{color:rgba(242,237,224,.5);transition:color .2s;}
+.breadcrumb a:hover{color:var(--gold-300);}
+.category-pill{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem 1rem;border-radius:var(--r-full);font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-300);margin-bottom:1.25rem;}
+.hero-title{font-family:var(--font-display);font-size:clamp(3rem,9vw,7.5rem);font-weight:300;line-height:1.0;letter-spacing:-.03em;color:#fff;margin-bottom:1rem;}
+.hero-tagline{font-size:clamp(1rem,2vw,1.35rem);color:rgba(255,255,255,.65);margin-bottom:2rem;font-style:italic;font-family:var(--font-display);}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2.5rem;}
+.badge{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1.1rem;border-radius:var(--r-full);font-size:.85rem;font-weight:500;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;backdrop-filter:blur(12px);}
+.badge svg{width:15px;height:15px;stroke:var(--gold-400);fill:none;stroke-width:2;}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;}
+.btn-gold{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border-radius:var(--r-full);background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;font-weight:600;font-size:.95rem;letter-spacing:.02em;box-shadow:0 4px 24px rgba(201,169,97,.35);transition:transform .2s,box-shadow .2s;}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,169,97,.45);}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.75rem;border-radius:var(--r-full);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);font-size:.95rem;font-weight:500;transition:border-color .2s,color .2s,background .2s;}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.06);}
+#description{background:var(--white-warm);padding:6rem 0;}
+.desc-grid{display:grid;gap:3rem;}
+@media(min-width:900px){.desc-grid{grid-template-columns:1fr 380px;gap:4rem;align-items:start;}}
+.desc-body{font-size:1.1rem;line-height:1.75;color:var(--ink-600);margin-bottom:2rem;}
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:.9rem;}
+.feature-list li{display:flex;align-items:center;gap:.85rem;font-size:1rem;color:var(--ink-600);}
+.feature-list li::before{content:'';display:block;width:20px;height:20px;flex-shrink:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b8923f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;}
+.info-card{border-radius:var(--r-xl);padding:2rem;position:sticky;top:7rem;}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:.85rem 0;border-bottom:1px solid rgba(201,169,97,.15);}
+.info-row:last-of-type{border-bottom:none;margin-bottom:1.25rem;}
+.info-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-400);}
+.info-value{font-size:.95rem;font-weight:600;color:var(--ink-900);}
+.btn-gold-full{display:flex;justify-content:center;align-items:center;gap:.6rem;padding:.9rem 1.75rem;border-radius:var(--r-full);background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;font-weight:600;font-size:.95rem;box-shadow:0 4px 20px rgba(201,169,97,.3);transition:transform .2s,box-shadow .2s;}
+.btn-gold-full:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,169,97,.4);}
+.section-eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-500);margin-bottom:.75rem;}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:300;letter-spacing:-.02em;color:var(--ink-900);margin-bottom:1rem;}
+#variants{background:var(--cream);padding:6rem 0;}
+.variants-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;margin-top:3rem;}
+.variant-card{border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:var(--shadow-card);transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s;}
+.variant-card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 30px 70px -15px rgba(15,14,11,.18);}
+.variant-img{width:100%;height:200px;object-fit: cover; object-position: top;transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.variant-card:hover .variant-img{transform:scale(1.06);}
+.variant-label{padding:1rem 1.25rem;font-weight:600;font-size:.9rem;color:var(--ink-900);}
+#pricing{background:var(--white-warm);padding:6rem 0;}
+.pricing-grid{display:grid;gap:1.5rem;margin-top:3rem;}
+@media(min-width:700px){.pricing-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}}
+.pricing-card{border-radius:var(--r-xl);padding:2.25rem 2rem;background:#fff;border:1px solid rgba(201,169,97,.15);box-shadow:var(--shadow-soft);transition:transform .3s,box-shadow .3s;position:relative;}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card);}
+.pricing-card.featured{border-color:var(--gold-400);box-shadow:0 0 0 1px var(--gold-400),0 20px 60px -10px rgba(201,169,97,.3);}
+.pricing-card.featured::before{content:'Most Popular';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem 1.1rem;border-radius:0 0 var(--r-md) var(--r-md);}
+.price-tier{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold-500);font-weight:600;margin-bottom:.5rem;margin-top:1rem;}
+.price-amount{font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--ink-900);line-height:1;}
+.price-duration{font-size:.85rem;color:var(--ink-400);margin:.5rem 0 1rem;}
+.price-desc{font-size:.9rem;color:var(--ink-600);line-height:1.6;margin-bottom:1.75rem;}
+.btn-book{display:flex;justify-content:center;padding:.8rem 1.5rem;border-radius:var(--r-full);font-size:.9rem;font-weight:600;transition:all .2s;}
+.btn-book-gold{background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;box-shadow:0 4px 18px rgba(201,169,97,.3);}
+.btn-book-gold:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,97,.4);}
+.btn-book-outline{border:1.5px solid var(--gold-400);color:var(--gold-500);}
+.btn-book-outline:hover{background:var(--gold-400);color:#fff;}
+#faq{background:var(--cream);padding:6rem 0;}
+.faq-list{margin-top:3rem;display:flex;flex-direction:column;gap:.75rem;max-width:780px;margin-left:auto;margin-right:auto;}
+.faq-item{border-radius:var(--r-lg);background:#fff;border:1px solid rgba(201,169,97,.12);overflow:hidden;}
+.faq-question{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.35rem 1.5rem;font-size:1rem;font-weight:600;color:var(--ink-900);text-align:left;gap:1rem;transition:color .2s;}
+.faq-question:hover{color:var(--gold-500);}
+.faq-icon{width:22px;height:22px;flex-shrink:0;border-radius:50%;border:1.5px solid var(--gold-400);display:flex;align-items:center;justify-content:center;transition:transform .3s,background .3s;}
+.faq-icon svg{width:12px;height:12px;stroke:var(--gold-500);fill:none;stroke-width:2.5;transition:transform .3s;}
+.faq-item.open .faq-icon{background:var(--gold-400);}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1);}
+.faq-answer-inner{padding:0 1.5rem 1.35rem;font-size:.95rem;color:var(--ink-600);line-height:1.7;}
+#cta{background:var(--ink-900);padding:7rem 0;text-align:center;}
+.cta-title{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:#fff;letter-spacing:-.02em;margin-bottom:2rem;}
+.btn-gold-pulse{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;border-radius:var(--r-full);background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;font-weight:600;font-size:1.05rem;animation:pulse 2.5s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,169,97,.5);}50%{box-shadow:0 0 0 14px rgba(201,169,97,0);}}
+.btn-gold-pulse:hover{transform:translateY(-2px);}
+.cta-back{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.75rem;color:rgba(255,255,255,.5);font-size:.9rem;transition:color .2s;}
+.cta-back:hover{color:var(--gold-300);}
+#footer{background:var(--ink-800);color:rgba(255,255,255,.65);padding:4rem 0 2rem;}
+.footer-grid{display:grid;gap:2.5rem;margin-bottom:3rem;}
+@media(min-width:768px){.footer-grid{grid-template-columns:repeat(3,1fr);}}
+.footer-brand{font-family:var(--font-display);font-size:1.25rem;color:#fff;margin-bottom:.75rem;}
+.footer-tagline{font-size:.85rem;line-height:1.6;color:rgba(255,255,255,.45);}
+.footer-heading{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-400);margin-bottom:1rem;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.footer-links a{font-size:.875rem;color:rgba(255,255,255,.55);transition:color .2s;}
+.footer-links a:hover{color:var(--gold-300);}
+.footer-contact p{font-size:.875rem;line-height:1.8;color:rgba(255,255,255,.55);}
+.newsletter-form{display:flex;gap:.5rem;margin-top:.75rem;}
+.newsletter-input{flex:1;padding:.7rem 1rem;border-radius:var(--r-full);border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;font-size:.875rem;outline:none;transition:border-color .2s;}
+.newsletter-input::placeholder{color:rgba(255,255,255,.3);}
+.newsletter-input:focus{border-color:var(--gold-400);}
+.newsletter-btn{padding:.7rem 1.25rem;border-radius:var(--r-full);background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#fff;font-size:.85rem;font-weight:600;transition:opacity .2s;}
+.newsletter-btn:hover{opacity:.88;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;font-size:.8rem;color:rgba(255,255,255,.3);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;}
+.footer-section-toggle{display:none;}
+@media(max-width:767px){
+  .footer-section-toggle{display:flex;justify-content:space-between;align-items:center;width:100%;color:rgba(255,255,255,.7);font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;cursor:pointer;padding:.5rem 0;}
+  .footer-collapsible{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .footer-collapsible.open{max-height:300px;}
+  .footer-section-toggle .toggle-icon{font-size:1.1rem;color:var(--gold-400);transition:transform .3s;}
+  .footer-section-toggle.open .toggle-icon{transform:rotate(45deg);}
+}
+</style>
+
+
+
+
+<style id="global-overlap-fixes">
+  /* 1. Reduce hero section by 50% */
+  #hero, .hero, header[class*="hero"] {
+    min-height: 65svh !important;
+    border-radius: 0 0 clamp(1.5rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3.5rem) !important;
+    margin-bottom: -3rem !important;
+    padding-bottom: 4rem !important;
+    z-index: 50 !important;
+    position: relative !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12) !important;
+  }
+
+  /* Reduce inner padding of hero so it CAN shrink */
+  .hero-content {
+    min-height: 65svh !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .hero-bridge {
+    height: 4rem !important;
+  }
+
+  /* 2. Overlapping rounded sections */
+  section {
+    border-radius: 0 0 clamp(1.5rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3.5rem) !important;
+    margin-bottom: -3rem !important;
+    padding-top: 8rem !important; 
+    padding-bottom: 8rem !important;
+    position: relative !important;
+    box-shadow: 0 -5px 40px rgba(0,0,0,0.02), 0 15px 40px rgba(0,0,0,0.06) !important;
+    background-clip: padding-box !important;
+  }
+
+  /* 3. Footer protection */
+  footer {
+    position: relative !important;
+    z-index: 10 !important;
+    padding-top: 8rem !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* 4. Z-index stacking */
+  main { z-index: 30 !important; position: relative !important; }
+  
+  body > section:nth-of-type(1), main > section:nth-of-type(1) { z-index: 45 !important; }
+  body > section:nth-of-type(2), main > section:nth-of-type(2) { z-index: 44 !important; }
+  body > section:nth-of-type(3), main > section:nth-of-type(3) { z-index: 43 !important; }
+  body > section:nth-of-type(4), main > section:nth-of-type(4) { z-index: 42 !important; }
+  body > section:nth-of-type(5), main > section:nth-of-type(5) { z-index: 41 !important; }
+  body > section:nth-of-type(6), main > section:nth-of-type(6) { z-index: 40 !important; }
+  body > section:nth-of-type(7), main > section:nth-of-type(7) { z-index: 39 !important; }
+  body > section:nth-of-type(8), main > section:nth-of-type(8) { z-index: 38 !important; }
+  body > section:nth-of-type(9), main > section:nth-of-type(9) { z-index: 37 !important; }
+  body > section:nth-of-type(10), main > section:nth-of-type(10) { z-index: 36 !important; }
+  body > section:nth-of-type(11), main > section:nth-of-type(11) { z-index: 35 !important; }
+  body > section:nth-of-type(12), main > section:nth-of-type(12) { z-index: 34 !important; }
+  body > section:nth-of-type(13), main > section:nth-of-type(13) { z-index: 33 !important; }
+  body > section:nth-of-type(14), main > section:nth-of-type(14) { z-index: 32 !important; }
+  body > section:nth-of-type(15), main > section:nth-of-type(15) { z-index: 31 !important; }
+  body > section:nth-of-type(16), main > section:nth-of-type(16) { z-index: 30 !important; }
+  body > section:nth-of-type(17), main > section:nth-of-type(17) { z-index: 29 !important; }
+  body > section:nth-of-type(18), main > section:nth-of-type(18) { z-index: 28 !important; }
+  body > section:nth-of-type(19), main > section:nth-of-type(19) { z-index: 27 !important; }
+  body > section:nth-of-type(20), main > section:nth-of-type(20) { z-index: 26 !important; }
+
+</style>
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="services.html" class="nav-item active" aria-label="Services">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="nav-label">Services</span>
+    </a>
+    <a href="catalogue.html" class="nav-item" aria-label="Catalogue">
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+      <span class="nav-label">Catalogue</span>
+    </a>
+    <a href="index.html" class="nav-item" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="nav-label">Home</span>
+    </a>
+    <a href="about.html" class="nav-item" aria-label="About">
+      <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      <span class="nav-label">About</span>
+    </a>
+    <a href="contact.html" class="nav-item" aria-label="Contact">
+      <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <span class="nav-label">Contact</span>
+    </a>
+  </div>
+</nav>
+
+<!-- SECTION 1 — HERO -->
+<section id="hero">
+  <video class="hero-bg" autoplay loop muted playsinline poster="image/hairstyle/5631b05b64a7544cfea39cb446864718.jpg" style="object-position: center 20%; width: 100%; height: 100%; object-fit: cover;"><source src="video/favorite%20style%2C%20favorite%20season%2C%20favorite%20braider!%20plaits%20for%20the%20summer%F0%9F%98%AE%E2%80%8D%F0%9F%92%A8%20%23mensbraids%20%23summer%20%23atlanta%20%23blackman.mp4" type="video/mp4" /></video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="container">
+      <p class="breadcrumb"><a href="services.html">Services</a> &nbsp;/&nbsp; Goddess Locs</p>
+      <div class="category-pill glass-gold">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+        Braiding
+      </div>
+      <h1 class="hero-title">Goddess Locs</h1>
+      <p class="hero-tagline">Bohemian romance meets structured artistry.</p>
+      <div class="hero-badges">
+        
+      </div>
+      <div class="hero-actions">
+        <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Goddess%20Locs*%20at%20Louis%20African%20Hair%20Braiding%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" target="_blank" rel="noreferrer" class="btn-gold">💬 Book This Service &nbsp;→</a>
+        <a href="services.html" class="btn-ghost">← &nbsp;View all services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 — DESCRIPTION -->
+<section id="description">
+  <div class="container">
+    <div class="desc-grid">
+      <div>
+        <p class="section-eyebrow reveal">Bohemian Artistry</p>
+        <h2 class="section-title font-display reveal reveal-delay-1">Earthy, ethereal, extraordinary</h2>
+        <p class="desc-body reveal reveal-delay-2">Romantic faux locs with soft, wavy tips for a goddess aesthetic. Goddess locs combine the structure of traditional locs with bohemian, wavy ends for a look that is both earthy and ethereal.</p>
+        <ul class="feature-list reveal reveal-delay-3">
+          <li>Soft wavy tips for bohemian flow</li>
+          <li>Protective and lightweight</li>
+          <li>Fully customizable length</li>
+          <li>Lasts 6–8 weeks</li>
+        </ul>
+      </div>
+      <div>
+        <div class="info-card glass-soft reveal reveal-delay-2">
+          <div class="info-row">
+            <span class="info-label">Duration</span>
+            <span class="info-value">6–8 hours</span>
+          </div>
+          
+          <div class="info-row">
+            <span class="info-label">Category</span>
+            <span class="info-value">Braiding</span>
+          </div>
+          <a href="tel:+16812839575" class="btn-gold-full">📞 Call to Book</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — STYLE VARIANTS -->
+<section id="variants">
+  <div class="container">
+    <p class="section-eyebrow reveal">Styles</p>
+    <h2 class="section-title font-display reveal reveal-delay-1">Available styles</h2>
+    <div class="variants-grid">
+      <div class="variant-card reveal reveal-delay-1">
+        <img class="variant-img" src="image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" alt="Classic Goddess Locs" loading="lazy" />
+        <p class="variant-label">Classic Goddess Locs</p>
+      </div>
+      <div class="variant-card reveal reveal-delay-2">
+        <img class="variant-img" src="image/hairstyle/6ba44eb750e3df354f4a5f1e6778f49d.jpg" alt="Butterfly Locs" loading="lazy" />
+        <p class="variant-label">Butterfly Locs</p>
+      </div>
+      <div class="variant-card reveal reveal-delay-3">
+        <img class="variant-img" src="image/hairstyle/6fd5be9d1b6e65091efbb44fafb2cb74.jpg" alt="Long Goddess Locs" loading="lazy" />
+        <p class="variant-label">Long Goddess Locs · Waist</p>
+      </div>
+      <div class="variant-card reveal reveal-delay-1">
+        <img class="variant-img" src="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" alt="Short Goddess Bob" loading="lazy" />
+        <p class="variant-label">Short Goddess Bob</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- SECTION 5 — FAQ -->
+<section id="faq">
+  <div class="container">
+    <p class="section-eyebrow reveal" style="text-align:center;">FAQ</p>
+    <h2 class="section-title font-display reveal reveal-delay-1" style="text-align:center;">Frequently asked questions</h2>
+    <div class="faq-list">
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question">How long does the style last?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><p class="faq-answer-inner">With proper maintenance and nightly wrapping, your style can last 6–10 weeks.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question">Do I need to bring my own hair?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><p class="faq-answer-inner">We provide premium braiding hair. You're welcome to bring your preferred brand — we'll adjust pricing accordingly.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-3">
+        <button class="faq-question">How should I prepare my hair?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><p class="faq-answer-inner">Come with freshly washed, detangled hair. Avoid heavy products the night before.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question">Is there a consultation before booking?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><p class="faq-answer-inner">Yes — all first-time clients receive a complimentary 15-min consultation to plan your look.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question">Do you accommodate sensitive scalps?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><p class="faq-answer-inner">Absolutely. Inform us at booking and we'll use tension-free methods and soothing scalp treatments.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — CTA -->
+<section id="cta">
+  <div class="container" style="text-align:center;">
+    <h2 class="cta-title font-display reveal">Ready for your transformation?</h2>
+    <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Goddess%20Locs*%20at%20Louis%20African%20Hair%20Braiding%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" target="_blank" rel="noreferrer" class="btn-gold-pulse reveal reveal-delay-1">💬 Book Your Appointment &nbsp;→</a>
+    <br/>
+    <a href="services.html" class="cta-back reveal reveal-delay-2">← &nbsp;Back to all services</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand font-display">Louis African Hair Braiding</p>
+        <p class="footer-tagline">Flawless Braids & Premium Wig Installs. Martinsburg's top salon for Black women.</p>
+      </div>
+      <div>
+        <button class="footer-section-toggle" onclick="toggleFooter(this)">Quick Links <span class="toggle-icon">+</span></button>
+        <p class="footer-heading" data-desktop style="display:none;">Quick Links</p>
+        <div class="footer-collapsible">
+          <ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        </div>
+        <ul class="footer-links" data-desktop-list style="display:none;"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul>
+      </div>
+      <div>
+        <button class="footer-section-toggle" onclick="toggleFooter(this)">Contact &amp; Newsletter <span class="toggle-icon">+</span></button>
+        <p class="footer-heading" data-desktop style="display:none;">Contact</p>
+        <div class="footer-collapsible">
+          <div class="footer-contact"><p>722 Foxcroft Avenue<br/>Martinsburg, WV</p><p>+1 681-283-9575</p><p>hello@louisbraiding.com</p></div>
+          <p style="font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-400);margin:1rem 0 .5rem;">Newsletter</p>
+          <form class="newsletter-form" onsubmit="return false;"><input class="newsletter-input" type="email" placeholder="your@email.com" /><button class="newsletter-btn" type="submit">Join</button></form>
+        </div>
+        <div data-desktop-contact style="display:none;">
+          <div class="footer-contact"><p>722 Foxcroft Avenue<br/>Martinsburg, WV</p><p>+1 681-283-9575</p><p>hello@louisbraiding.com</p></div>
+          <p style="font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-400);margin:1rem 0 .5rem;">Newsletter</p>
+          <form class="newsletter-form" onsubmit="return false;"><input class="newsletter-input" type="email" placeholder="your@email.com" /><button class="newsletter-btn" type="submit">Join</button></form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Louis African Hair Braiding · All rights reserved.</span>
+      <span><a href="privacy.html" style="color:rgba(255,255,255,.3);transition:color .2s;" onmouseover="this.style.color='var(--gold-300)'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── LENIS SMOOTH SCROLL ── */
+  (function () {
+    if (typeof Lenis === 'undefined') return;
+    const lenis = new Lenis({ duration: 1.2, easing: t => 1 - Math.pow(1 - t, 4), smoothWheel: true });
+    window.__lenis = lenis;
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80, duration: 1.4 }); }
+      });
+    });
+  })();
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-answer').style.maxHeight = '0';
+    });
+    if(!isOpen){ item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+  });
+});
+
+function toggleFooter(btn){
+  const collapsible = btn.nextElementSibling;
+  if(!collapsible) return;
+  collapsible.classList.toggle('open', !collapsible.classList.contains('open'));
+  btn.classList.toggle('open', !btn.classList.contains('open'));
+}
+
+function applyFooterLayout(){
+  const isDesktop = window.innerWidth >= 768;
+  document.querySelectorAll('.footer-section-toggle').forEach(t => t.style.display = isDesktop ? 'none' : '');
+  document.querySelectorAll('[data-desktop]').forEach(el => el.style.display = isDesktop ? '' : 'none');
+  document.querySelectorAll('[data-desktop-list]').forEach(el => el.style.display = isDesktop ? '' : 'none');
+  document.querySelectorAll('[data-desktop-contact]').forEach(el => el.style.display = isDesktop ? '' : 'none');
+  document.querySelectorAll('.footer-collapsible').forEach(el => { el.style.display = isDesktop ? 'none' : ''; });
+}
+applyFooterLayout();
+window.addEventListener('resize', applyFooterLayout);
+</script>
+<script>
+  /* ── LENIS SMOOTH SCROLL ── */
+  (function () {
+    if (typeof Lenis === 'undefined') return;
+    const lenis = new Lenis({ duration: 1.2, easing: t => 1 - Math.pow(1 - t, 4), smoothWheel: true });
+    window.__lenis = lenis;
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80, duration: 1.4 }); }
+      });
+    });
+  })();(function(){var b=window.location.origin+window.location.pathname.replace(/\/[^\/]*$/,"");document.querySelectorAll("a[data-wa-img]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var u=b+"/"+a.getAttribute("data-wa-img");window.open(a.getAttribute("href")+"%0A%F0%9F%93%B8%20"+encodeURIComponent(u),"_blank","noreferrer");});});})();</script>  <script src="animations.js" defer></script>
+  <script src="parallax.js" defer></script>
+</body>
+</html>
