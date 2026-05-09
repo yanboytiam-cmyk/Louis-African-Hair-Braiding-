@@ -1,6 +1,3 @@
-# Video files - too large for GitHub, host on CDN instead
-video/
-
 # OS files
 .DS_Store
 Thumbs.db
