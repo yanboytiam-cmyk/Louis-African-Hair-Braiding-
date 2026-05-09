@@ -31,39 +31,37 @@
   ══════════════════════════════════════════════════════════════ */
 
   const LAYERS_A = [
-    /* HÉRO — fond se déplace 2.5× plus lentement que le scroll */
-    { sel: '.hero-video',            speed:  0.35 },
-    { sel: '.hero-bg',               speed:  0.35 },
+    /* HÉRO — vitesses réduites pour éviter les bords noirs */
+    { sel: '.hero-video',            speed:  0.12 },
+    { sel: '.hero-bg',               speed:  0.12 },
     /* Overlays gradient héro */
-    { sel: '.hero-overlay-top',      speed:  0.18 },
-    /* .hero-content retiré : translateY(-8px) au load décalait le contenu
-       vers le haut et faisait chevaucher la navbar                        */
+    { sel: '.hero-overlay-top',      speed:  0.07 },
     /* Testimonial flottant — contre-mouvement doux */
-    { sel: '.floating-testimonial',  speed: -0.10 },
+    { sel: '.floating-testimonial',  speed: -0.05 },
     /* Booking background */
-    { sel: '.booking-bg',            speed:  0.32 },
-    { sel: '.booking-overlay',       speed:  0.20 },
+    { sel: '.booking-bg',            speed:  0.10 },
+    { sel: '.booking-overlay',       speed:  0.07 },
   ];
 
   const LAYERS_B = [
-    /* Images immersion — chaque enfant à vitesse différente */
-    { sel: '.immersion-img:nth-child(1) img',    speed:  0.14 },
-    { sel: '.immersion-img:nth-child(1) video',  speed:  0.14 },
-    { sel: '.immersion-img:nth-child(2) img',    speed: -0.09 },
-    { sel: '.immersion-img:nth-child(2) video',  speed: -0.09 },
-    { sel: '.immersion-img:nth-child(3) img',    speed:  0.17 },
-    { sel: '.immersion-img:nth-child(3) video',  speed:  0.17 },
-    /* Images galerie bento — alternance profondeur */
-    { sel: '.gallery-item:nth-child(odd)  img',  speed:  0.09 },
-    { sel: '.gallery-item:nth-child(even) img',  speed: -0.07 },
-    /* Détail grid — images seulement */
-    { sel: '.detail-grid img',                   speed:  0.12 },
+    /* Images immersion — vitesses réduites */
+    { sel: '.immersion-img:nth-child(1) img',    speed:  0.07 },
+    { sel: '.immersion-img:nth-child(1) video',  speed:  0.07 },
+    { sel: '.immersion-img:nth-child(2) img',    speed: -0.05 },
+    { sel: '.immersion-img:nth-child(2) video',  speed: -0.05 },
+    { sel: '.immersion-img:nth-child(3) img',    speed:  0.08 },
+    { sel: '.immersion-img:nth-child(3) video',  speed:  0.08 },
+    /* Images galerie bento */
+    { sel: '.gallery-item:nth-child(odd)  img',  speed:  0.05 },
+    { sel: '.gallery-item:nth-child(even) img',  speed: -0.04 },
+    /* Détail grid */
+    { sel: '.detail-grid img',                   speed:  0.06 },
     /* About / service pages */
-    { sel: '.founder-img img',                   speed:  0.16 },
-    { sel: '.atelier-img img',                   speed:  0.12 },
-    { sel: '.stylist-img img',                   speed: -0.08 },
-    { sel: '.service-hero-img img',              speed:  0.18 },
-    { sel: '.desc-img img',                      speed:  0.14 },
+    { sel: '.founder-img img',                   speed:  0.08 },
+    { sel: '.atelier-img img',                   speed:  0.06 },
+    { sel: '.stylist-img img',                   speed: -0.04 },
+    { sel: '.service-hero-img img',              speed:  0.09 },
+    { sel: '.desc-img img',                      speed:  0.07 },
   ];
 
   /* ── COLLECTE ───────────────────────────────────────────────── */
