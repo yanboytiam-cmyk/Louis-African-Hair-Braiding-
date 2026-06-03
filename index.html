@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Louis African Hair Braiding — Flawless Braids & Premium Wig Installs</title>
   <meta name="description"
-    content="Martinsburg's top salon for Black women. Specializing in tension-free knotless braids, sleek stitch braids, and melted HD lace wig installs. Book your chair today." />
+    content="Martinsburg's premier African hair braiding salon. Specializing in tension-free knotless braids, sleek stitch braids, and melted HD lace wig installs — for women of all backgrounds. Book your chair today." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&family=Cormorant:wght@400;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
   <style>
@@ -203,77 +203,159 @@
     /* ── NAVBAR ── */
     #navbar {
       position: fixed;
-      top: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 0; left: 0; right: 0;
       z-index: 100;
-      transition: all .3s;
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      border-radius: var(--r-full);
-      border: 1px solid rgba(255, 255, 255, .1);
-      background: rgba(15, 14, 11, .8);
-      padding: .75rem 1rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, .3);
+      background: rgba(15,14,11,.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,169,97,.15);
     }
-
-    .nav-item {
-      position: relative;
+    .nav-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 4.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .625rem;
+      text-decoration: none;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .nav-logo svg {
+      width: 2rem;
+      height: 2rem;
+      stroke: #c9a961;
+      fill: none;
+      stroke-width: 1.5;
+      flex-shrink: 0;
+    }
+    .nav-logo-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1;
+    }
+    .nav-logo-sub {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: .6rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #c9a961;
+      margin-top: .15rem;
+    }
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: .125rem;
+      margin-left: auto;
+    }
+    @media(min-width:900px){.nav-links{display:flex;}}
+    .nav-link {
+      padding: .4rem .875rem;
+      border-radius: 9999px;
+      font-size: .875rem;
+      font-weight: 500;
+      color: rgba(242,237,224,.7);
+      text-decoration: none;
+      transition: color .2s, background .2s;
+      white-space: nowrap;
+    }
+    .nav-link:hover{color:#fff;background:rgba(255,255,255,.07);}
+    .nav-link.active{color:#dbc178;background:rgba(201,169,97,.12);}
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-left: auto;
+    }
+    @media(min-width:900px){.nav-actions{margin-left:1.5rem;}}
+    .nav-book {
+      display: none;
+      align-items: center;
+      gap: .375rem;
+      background: #c9a961;
+      color: #0f0e0b;
+      font-weight: 600;
+      font-size: .8rem;
+      padding: .5rem 1.125rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+      white-space: nowrap;
+    }
+    @media(min-width:640px){.nav-book{display:inline-flex;}}
+    .nav-book:hover{background:#dbc178;transform:translateY(-1px);}
+    .nav-burger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 2.25rem;
+      height: 2.25rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: .4rem .5rem;
+      transition: background .2s;
+    }
+    @media(min-width:900px){.nav-burger{display:none;}}
+    .nav-burger:hover{background:rgba(255,255,255,.1);}
+    .nav-burger span {
+      display: block;
+      height: 1.5px;
+      background: rgba(242,237,224,.85);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .nav-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+    .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+    .nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+    .nav-mobile {
+      display: none;
+      padding: .75rem 1.5rem 1.25rem;
+      border-top: 1px solid rgba(201,169,97,.1);
+      background: rgba(15,14,11,.98);
+      gap: .25rem;
+    }
+    .nav-mobile.open{display:flex;flex-direction:column;}
+    @media(min-width:900px){.nav-mobile{display:none !important;}}
+    .nav-mobile-link {
+      display: block;
+      padding: .65rem .75rem;
+      font-size: .95rem;
+      font-weight: 500;
+      color: rgba(242,237,224,.75);
+      text-decoration: none;
+      border-radius: 10px;
+      transition: color .2s, background .2s;
+    }
+    .nav-mobile-link:hover,.nav-mobile-link.active{color:#dbc178;background:rgba(201,169,97,.1);}
+    .nav-mobile-book {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 3.5rem;
-      height: 3.5rem;
-      border-radius: var(--r-full);
+      gap: .375rem;
+      margin-top: .75rem;
+      background: #c9a961;
+      color: #0f0e0b;
+      font-weight: 600;
+      font-size: .875rem;
+      padding: .75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
       transition: background .2s;
     }
-
-    .nav-item svg {
-      width: 22px;
-      height: 22px;
-      stroke: var(--gold-400);
-      fill: none;
-      stroke-width: 2;
-      transition: stroke .2s;
-    }
-
-    .nav-item:hover svg {
-      stroke: var(--gold-200);
-    }
-
-    .nav-item.active {
-      background: var(--gold-400);
-      box-shadow: 0 0 20px rgba(201, 169, 97, .4);
-    }
-
-    .nav-item.active svg {
-      stroke: #fff;
-    }
-
-    .nav-label {
-      position: absolute;
-      bottom: -2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: .65rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--gold-200);
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .2s;
-    }
-
-    .nav-item:hover .nav-label {
-      opacity: 1;
-    }
+    .nav-mobile-book:hover{background:#dbc178;}
 
     /* ── HERO ── */
     #hero {
@@ -1297,38 +1379,6 @@
       color: var(--gold-300);
     }
 
-    .newsletter-form {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: .75rem;
-      padding: 1rem;
-      border-radius: var(--r-md);
-      background: var(--glass-white-soft);
-      backdrop-filter: blur(24px);
-      border: 1px solid var(--border-white-soft);
-    }
-
-    .newsletter-input {
-      flex: 1;
-      border-radius: var(--r-full);
-      border: 1px solid var(--border-ink-soft);
-      background: rgba(253, 252, 249, .8);
-      padding: .5rem 1rem;
-      font-size: .875rem;
-      color: var(--ink-900);
-      font-family: inherit;
-    }
-
-    .newsletter-input::placeholder {
-      color: var(--ink-400);
-    }
-
-    .newsletter-input:focus {
-      outline: 2px solid var(--gold-400);
-      outline-offset: 2px;
-    }
-
     .footer-bottom {
       max-width: 1440px;
       margin: 4rem auto 0;
@@ -1588,54 +1638,40 @@
     onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">Skip to main content</a>
 
   <!-- ── NAVBAR ── -->
-  <div id="navbar">
-    <nav class="nav-inner" aria-label="Main navigation">
-      <a href="services.html" class="nav-item" aria-label="Services" title="Services">
-        <svg viewBox="0 0 24 24">
-          <path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <path d="M16 10a4 4 0 01-8 0" />
-        </svg>
-        <span class="nav-label">Services</span>
+  <header id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Louis African Hair Braiding">
+        <svg viewBox="0 0 56 56" fill="none" aria-hidden="true"><circle cx="28" cy="28" r="27" stroke="currentColor" stroke-width="1.5"/><path d="M16 40h24M20 40l-4-14 8 7 4-10 4 10 8-7-4 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28" cy="18" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="nav-logo-name">Louis<span class="nav-logo-sub">African Hair Braiding</span></span>
       </a>
-      <a href="catalogue.html" class="nav-item" aria-label="Catalogue" title="Catalogue">
-        <svg viewBox="0 0 24 24">
-          <circle cx="9" cy="21" r="1" />
-          <circle cx="20" cy="21" r="1" />
-          <path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6" />
-        </svg>
-        <span class="nav-label">Catalogue</span>
-      </a>
-      <a href="index.html" class="nav-item active" aria-label="Home" aria-current="page" title="Home">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-          <polyline points="9 22 9 12 15 12 15 22" />
-        </svg>
-        <span class="nav-label">Home</span>
-      </a>
-      <a href="about.html" class="nav-item" aria-label="About Us" title="About Us">
-        <svg viewBox="0 0 24 24">
-          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
-        </svg>
-        <span class="nav-label">About</span>
-      </a>
-      <a href="contact.html" class="nav-item" aria-label="Contact" title="Contact">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 20h9" />
-          <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
-        </svg>
-        <span class="nav-label">Contact</span>
-      </a>
-    </nav>
-  </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="catalogue.html" class="nav-link">Catalogue</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20an%20appointment%20at%20Louis%20African%20Hair%20Braiding%20%F0%9F%92%9B%20What%27s%20your%20next%20availability%3F" class="nav-book" target="_blank" rel="noreferrer">Book Now →</a>
+        <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="index.html" class="nav-mobile-link active">Home</a>
+      <a href="services.html" class="nav-mobile-link">Services</a>
+      <a href="catalogue.html" class="nav-mobile-link">Catalogue</a>
+      <a href="about.html" class="nav-mobile-link">About</a>
+      <a href="contact.html" class="nav-mobile-link">Contact</a>
+      <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20an%20appointment%20at%20Louis%20African%20Hair%20Braiding%20%F0%9F%92%9B%20What%27s%20your%20next%20availability%3F" class="nav-mobile-book" target="_blank" rel="noreferrer">Book Now →</a>
+    </div>
+  </header>
 
   <!-- ── MAIN ── -->
   <main id="main-content">
 
     <!-- ── HERO ── -->
     <section id="hero" aria-label="Hero">
-      <video class="hero-video" autoplay loop muted playsinline
+      <video preload="metadata" class="hero-video" autoplay loop muted playsinline
         poster="image/wings/1c60e6e095461f3c4d7dc4961f503664.jpg">
         <source src="video/Braided%20Hair%20Inspo.mp4" type="video/mp4" />
       </video>
@@ -1744,7 +1780,7 @@
           <p class="eyebrow" style="color:var(--gold-600);margin-bottom:1rem;">Signature Services</p>
           <h2 class="text-h2 font-display" style="color:var(--ink-900);">The blueprint for flawless hair</h2>
           <p class="text-body" style="color:var(--ink-600);margin-top:1rem;max-width:36rem;margin-inline:auto;">From
-            tension-free protective styles to seamless HD lace installs, we specialize in what Black women want.</p>
+            tension-free protective styles to seamless HD lace installs, we craft flawless results for women of every background.</p>
         </div>
       </div>
       <div class="carousel-wrapper" style="padding:0 1.5rem;" id="carousel-wrapper">
@@ -1807,9 +1843,9 @@
                   stroke-linejoin="round" />
               </svg>
             </div>
-            <p class="eyebrow" style="color:var(--gold-500);margin-bottom:.75rem;">Black Girl Magic</p>
-            <p class="text-body" style="color:var(--ink-600);max-width:18rem;">A luxury salon experience created
-              specifically for us. Good music, great vibes.</p>
+            <p class="eyebrow" style="color:var(--gold-500);margin-bottom:.75rem;">Pure Hair Magic</p>
+            <p class="text-body" style="color:var(--ink-600);max-width:18rem;">A luxury salon experience crafted
+              for every woman. Good music, great vibes.</p>
           </div>
         </div>
       </div>
@@ -1830,7 +1866,7 @@
               loading="lazy" style="object-position: center; width: 100%; height: 100%; object-fit: cover;" />
           </div>
           <div class="immersion-img reveal reveal-delay-1">
-            <video autoplay loop muted playsinline style="object-position: center; width: 100%; height: 100%; object-fit: cover;">
+            <video preload="metadata" poster="image/wings/1c60e6e095461f3c4d7dc4961f503664.jpg" autoplay loop muted playsinline style="object-position: center; width: 100%; height: 100%; object-fit: cover;">
               <source src="video/Braided%20Hair%20Inspo.mp4" type="video/mp4" />
             </video>
           </div>
@@ -1951,7 +1987,7 @@
               Photo highlight</p>
           </div>
           <div style="position:relative;height:220px;overflow:hidden;border-radius:var(--r-xl);" class="reveal reveal-delay-1">
-            <video src="video/Jayda%20wayda%20braids%F0%9F%A5%B0.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position: center;"></video>
+            <video preload="metadata" poster="image/hairstyle/5631b05b64a7544cfea39cb446864718.jpg" src="video/Jayda%20wayda%20braids%F0%9F%A5%B0.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position: center;"></video>
             <p style="position:absolute;bottom:.75rem;left:.75rem;color:#fff;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Video</p>
           </div>
           <div style="position:relative;height:220px;overflow:hidden;border-radius:var(--r-xl);" class="reveal reveal-delay-1">
@@ -1964,7 +2000,7 @@
               Before / After</p>
           </div>
           <div style="position:relative;height:220px;overflow:hidden;border-radius:var(--r-xl);" class="reveal reveal-delay-2">
-            <video src="video/Nellie%20Anjaratiana.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position: center;"></video>
+            <video preload="metadata" poster="image/hairstyle/8ebf745e9818fd3a85ad26390cb9c5e9.jpg" src="video/Nellie%20Anjaratiana.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position: center;"></video>
             <p style="position:absolute;bottom:.75rem;left:.75rem;color:#fff;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Reel</p>
           </div>
         </div>
@@ -1988,9 +2024,9 @@
           </a>
         </div>
         <div class="gallery-bento">
-          <div class="gallery-item row-span-2 reveal" data-label="Box Braids · 8h work"
-            data-src="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" data-alt="Portrait - box braids queen">
-            <img src="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" alt="Portrait - box braids queen"
+          <div class="gallery-item row-span-2 reveal" data-label="Feed-In Braids · 8h work"
+            data-src="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" data-alt="Portrait - feed-in braids">
+            <img src="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" alt="Portrait - feed-in braids"
               loading="lazy" style="object-fit: cover; object-position: center top; width: 100%; height: 100%;" />
             <div class="gallery-overlay">
               <div>
@@ -2194,14 +2230,6 @@
           <p class="text-body"><a href="mailto:hello@louisbraiding.com" class="footer-link">hello@louisbraiding.com</a>
           </p>
           <p class="text-small" style="color:rgba(242,237,224,.75);">Tue–Sat · 9am–7pm<br>Sun–Mon · Closed</p>
-          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-            <label for="newsletter" class="eyebrow" style="color:var(--ink-900);">Newsletter</label>
-            <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
-              <input id="newsletter" class="newsletter-input" type="email" required placeholder="you@email.com" />
-              <button type="submit" class="btn-primary" style="padding:.5rem 1.25rem;font-size:.875rem;">Subscribe <span
-                  aria-hidden="true">→</span></button>
-            </div>
-          </form>
         </div>
       </div>
 
@@ -2269,12 +2297,6 @@
             </div>
           </div>
         </div>
-        <form class="newsletter-form" style="margin-top:2rem;" onsubmit="handleNewsletter(event)">
-          <label for="newsletter-m" class="eyebrow" style="color:var(--ink-900);">Newsletter</label>
-          <input id="newsletter-m" class="newsletter-input" type="email" required placeholder="you@email.com" />
-          <button type="submit" class="btn-primary" style="padding:.625rem 1.25rem;font-size:.875rem;">Subscribe
-            →</button>
-        </form>
       </div>
 
       <div class="footer-bottom">
@@ -2492,15 +2514,25 @@
       item.classList.toggle('open');
     }
 
-    /* ── NEWSLETTER ── */
-    function handleNewsletter(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button[type=submit]');
-      const orig = btn.innerHTML;
-      btn.innerHTML = 'Subscribed ✓';
-      btn.style.background = 'var(--gold-600)';
-      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 3000);
-    }
+    /* ── NAVBAR BURGER ── */
+    (function(){
+      var burger=document.querySelector('.nav-burger');
+      var mob=document.getElementById('nav-mobile');
+      if(!burger||!mob)return;
+      burger.addEventListener('click',function(){
+        var open=burger.classList.toggle('open');
+        mob.classList.toggle('open',open);
+        burger.setAttribute('aria-expanded',String(open));
+      });
+      mob.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click',function(){
+          burger.classList.remove('open');
+          mob.classList.remove('open');
+          burger.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+
   </script>
   <script src="animations.js" defer></script>
   <script src="parallax.js" defer></script>

@@ -18,7 +18,14 @@
   /* ── STATE ──────────────────────────────────────────────────── */
   let smoothY  = 0;   // position lissée Lenis
   let ticking  = false;
-  const VH     = window.innerHeight;
+  let VH       = window.innerHeight;
+
+  /* Recalcule la hauteur écran au resize/rotation pour garder
+     les décalages parallax alignés (évite le drift après resize) */
+  window.addEventListener('resize', () => {
+    VH = window.innerHeight;
+    if (!ticking) { requestAnimationFrame(render); ticking = true; }
+  }, { passive: true });
 
   /* ══════════════════════════════════════════════════════════════
      CIBLES SÛRES  (aucun conflit possible)

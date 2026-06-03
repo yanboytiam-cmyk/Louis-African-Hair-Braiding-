@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catalogue — Louis African Hair Braiding</title>
+  <meta name="description" content="Browse our full catalogue of braids, twists, sew-ins, wigs and extensions at Louis African Hair Braiding in Martinsburg, WV. Find your next style and book on WhatsApp." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -72,40 +73,162 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ───────── NAVBAR ───────── */
-    .navbar {
+    /* ── NAVBAR ── */
+    #navbar {
       position: fixed;
-      top: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      background: rgba(15, 14, 11, 0.82);
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(15,14,11,.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(201, 169, 97, 0.2);
-      border-radius: 9999px;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      border-bottom: 1px solid rgba(201,169,97,.15);
     }
-    .nav-item {
+    .nav-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 4.5rem;
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: 9999px;
-      color: var(--ink-200);
-      font-size: 13px;
+      gap: 1.5rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .625rem;
+      text-decoration: none;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .nav-logo svg {
+      width: 2rem;
+      height: 2rem;
+      stroke: #c9a961;
+      fill: none;
+      stroke-width: 1.5;
+      flex-shrink: 0;
+    }
+    .nav-logo-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1;
+    }
+    .nav-logo-sub {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: .6rem;
       font-weight: 500;
-      transition: color 0.2s, background 0.2s;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #c9a961;
+      margin-top: .15rem;
+    }
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: .125rem;
+      margin-left: auto;
+    }
+    @media(min-width:900px){.nav-links{display:flex;}}
+    .nav-link {
+      padding: .4rem .875rem;
+      border-radius: 9999px;
+      font-size: .875rem;
+      font-weight: 500;
+      color: rgba(242,237,224,.7);
+      text-decoration: none;
+      transition: color .2s, background .2s;
       white-space: nowrap;
     }
-    .nav-item:hover { color: var(--gold-300); background: rgba(201, 169, 97, 0.1); }
-    .nav-item.active { background: var(--gold-400); color: var(--ink-900); box-shadow: 0 0 20px rgba(201,169,97,.4); }
-    .nav-item svg { width: 15px; height: 15px; flex-shrink: 0; }
-    .nav-label { display: none; }
-    @media (min-width: 640px) { .nav-label { display: inline; } }
+    .nav-link:hover{color:#fff;background:rgba(255,255,255,.07);}
+    .nav-link.active{color:#dbc178;background:rgba(201,169,97,.12);}
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-left: auto;
+    }
+    @media(min-width:900px){.nav-actions{margin-left:1.5rem;}}
+    .nav-book {
+      display: none;
+      align-items: center;
+      gap: .375rem;
+      background: #c9a961;
+      color: #0f0e0b;
+      font-weight: 600;
+      font-size: .8rem;
+      padding: .5rem 1.125rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+      white-space: nowrap;
+    }
+    @media(min-width:640px){.nav-book{display:inline-flex;}}
+    .nav-book:hover{background:#dbc178;transform:translateY(-1px);}
+    .nav-burger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 2.25rem;
+      height: 2.25rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: .4rem .5rem;
+      transition: background .2s;
+    }
+    @media(min-width:900px){.nav-burger{display:none;}}
+    .nav-burger:hover{background:rgba(255,255,255,.1);}
+    .nav-burger span {
+      display: block;
+      height: 1.5px;
+      background: rgba(242,237,224,.85);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .nav-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+    .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+    .nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+    .nav-mobile {
+      display: none;
+      padding: .75rem 1.5rem 1.25rem;
+      border-top: 1px solid rgba(201,169,97,.1);
+      background: rgba(15,14,11,.98);
+      gap: .25rem;
+    }
+    .nav-mobile.open{display:flex;flex-direction:column;}
+    @media(min-width:900px){.nav-mobile{display:none !important;}}
+    .nav-mobile-link {
+      display: block;
+      padding: .65rem .75rem;
+      font-size: .95rem;
+      font-weight: 500;
+      color: rgba(242,237,224,.75);
+      text-decoration: none;
+      border-radius: 10px;
+      transition: color .2s, background .2s;
+    }
+    .nav-mobile-link:hover,.nav-mobile-link.active{color:#dbc178;background:rgba(201,169,97,.1);}
+    .nav-mobile-book {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .375rem;
+      margin-top: .75rem;
+      background: #c9a961;
+      color: #0f0e0b;
+      font-weight: 600;
+      font-size: .875rem;
+      padding: .75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .nav-mobile-book:hover{background:#dbc178;}
 
     /* ───────── HERO ───────── */
     .hero {
@@ -765,31 +888,34 @@
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════
-       NAVBAR
-  ════════════════════════════════════════════ -->
-  <nav class="navbar" aria-label="Main navigation">
-    <a href="services.html" class="nav-item" aria-label="Services">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-      <span class="nav-label">Services</span>
-    </a>
-    <a href="catalogue.html" class="nav-item active" aria-label="Catalogue" aria-current="page">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-      <span class="nav-label">Catalogue</span>
-    </a>
-    <a href="index.html" class="nav-item" aria-label="Home">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span class="nav-label">Home</span>
-    </a>
-    <a href="about.html" class="nav-item" aria-label="About">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-      <span class="nav-label">About</span>
-    </a>
-    <a href="contact.html" class="nav-item" aria-label="Contact">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-      <span class="nav-label">Contact</span>
-    </a>
-  </nav>
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Louis African Hair Braiding">
+        <svg viewBox="0 0 56 56" fill="none" aria-hidden="true"><circle cx="28" cy="28" r="27" stroke="currentColor" stroke-width="1.5"/><path d="M16 40h24M20 40l-4-14 8 7 4-10 4 10 8-7-4 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28" cy="18" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="nav-logo-name">Louis<span class="nav-logo-sub">African Hair Braiding</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="catalogue.html" class="nav-link active" aria-current="page">Catalogue</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20an%20appointment%20at%20Louis%20African%20Hair%20Braiding%20%F0%9F%92%9B%20What%27s%20your%20next%20availability%3F" class="nav-book" target="_blank" rel="noreferrer">Book Now →</a>
+        <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="index.html" class="nav-mobile-link">Home</a>
+      <a href="services.html" class="nav-mobile-link">Services</a>
+      <a href="catalogue.html" class="nav-mobile-link active">Catalogue</a>
+      <a href="about.html" class="nav-mobile-link">About</a>
+      <a href="contact.html" class="nav-mobile-link">Contact</a>
+      <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20an%20appointment%20at%20Louis%20African%20Hair%20Braiding%20%F0%9F%92%9B%20What%27s%20your%20next%20availability%3F" class="nav-mobile-book" target="_blank" rel="noreferrer">Book Now →</a>
+    </div>
+  </header>
 
   <!-- ═══════════════════════════════════════════
        HERO
@@ -903,17 +1029,17 @@
         <!-- 4. Cornrows -->
         <article class="service-card reveal" data-type="Braids" data-duration="Under 2h" role="listitem">
           <div class="service-img-wrap">
-            <img src="image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" alt="Classic Cornrows" loading="lazy" />
+            <img src="image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" alt="Lemonade Braids" loading="lazy" />
           </div>
           <div class="service-body">
-            <h3 class="service-name">Classic Cornrows</h3>
-            <p class="service-tagline">Precision rows, limitless patterns.</p>
+            <h3 class="service-name">Lemonade Braids</h3>
+            <p class="service-tagline">Sleek feed-in rows that flow into long braids.</p>
             <div class="badge-row">
               <span class="badge badge-duration">Under 2h</span>
               
             </div>
-            <p class="service-desc">Clean, protective rows expertly parted and braided.</p>
-            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Classic%20Cornrows*%20%28from%20%2480%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+            <p class="service-desc">Cornrowed roots gliding into long, side-swept braids.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Lemonade%20Braids*%20%28from%20%2480%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
           </div>
         </article>
 
@@ -936,37 +1062,37 @@
         </article>
 
         <!-- 6. Passion Twists -->
-        <article class="service-card reveal reveal-delay-2" data-type="Twists" data-duration="2-5h" role="listitem">
+        <article class="service-card reveal reveal-delay-2" data-type="Braids" data-duration="2-5h" role="listitem">
           <div class="service-img-wrap">
-            <img src="image/hairstyle/6fd5be9d1b6e65091efbb44fafb2cb74.jpg" alt="Passion Twists" loading="lazy" />
+            <img src="image/hairstyle/6fd5be9d1b6e65091efbb44fafb2cb74.jpg" alt="Boho Bob" loading="lazy" />
           </div>
           <div class="service-body">
-            <h3 class="service-name">Passion Twists</h3>
-            <p class="service-tagline">Soft, fluffy twists with romantic movement.</p>
+            <h3 class="service-name">Boho Bob</h3>
+            <p class="service-tagline">Chin-length braids with soft curly ends.</p>
             <div class="badge-row">
               <span class="badge badge-duration">2–5h</span>
               
             </div>
-            <p class="service-desc">Bohemian textures that frame the face.</p>
-            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Passion%20Twists*%20%28from%20%24220%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/6fd5be9d1b6e65091efbb44fafb2cb74.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+            <p class="service-desc">Bohemian curls in a chic, lightweight bob.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Boho%20Bob*%20%28from%20%24220%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/6fd5be9d1b6e65091efbb44fafb2cb74.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
           </div>
         </article>
 
         <!-- 7. Faux Locs -->
         <article class="service-card reveal" data-type="Braids" data-duration="2-5h" data-featured="true" role="listitem">
           <div class="service-img-wrap">
-            <img src="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" alt="Large Box Braids" loading="lazy" />
+            <img src="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" alt="Feed-In Braids" loading="lazy" />
             <span class="featured-badge">Featured</span>
           </div>
           <div class="service-body">
-            <h3 class="service-name">Large Box Braids</h3>
-            <p class="service-tagline">Classic, bold, and neatly parted.</p>
+            <h3 class="service-name">Feed-In Braids</h3>
+            <p class="service-tagline">Sleek, scalp-hugging, and seamless.</p>
             <div class="badge-row">
               <span class="badge badge-duration">2–5h</span>
               
             </div>
-            <p class="service-desc">Thick, pristine box braids that make a statement.</p>
-            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Large%20Box%20Braids*%20%28from%20%24250%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+            <p class="service-desc">Cornrowed roots that flow into long, seamless braids.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Feed-In%20Braids*%20%28from%20%24250%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
           </div>
         </article>
 
@@ -1093,17 +1219,17 @@
         <!-- 15. Wash & Go -->
         <article class="service-card reveal reveal-delay-2" data-type="Braids" data-duration="Under 2h" role="listitem">
           <div class="service-img-wrap">
-            <img src="image/hairstyle/a4d73d98fa86a0812a3d005bcca5add1.jpg" alt="Small Knotless Braids" loading="lazy" />
+            <img src="image/hairstyle/a4d73d98fa86a0812a3d005bcca5add1.jpg" alt="Boho Stitch Braids" loading="lazy" />
           </div>
           <div class="service-body">
-            <h3 class="service-name">Small Knotless Braids</h3>
-            <p class="service-tagline">Ultra-lightweight and versatile.</p>
+            <h3 class="service-name">Boho Stitch Braids</h3>
+            <p class="service-tagline">Stitch roots with curly boho ends.</p>
             <div class="badge-row">
               <span class="badge badge-duration">Under 2h</span>
               
             </div>
-            <p class="service-desc">Fine, meticulously parted knotless braids for effortless styling.</p>
-            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Small%20Knotless%20Braids*%20%28from%20%2450%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/a4d73d98fa86a0812a3d005bcca5add1.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
+            <p class="service-desc">Neat stitch cornrows blended with flowing boho curls.</p>
+            <a href="https://wa.me/16812839575?text=Hi!%20I%27d%20like%20to%20book%20*Boho%20Stitch%20Braids*%20%28from%20%2450%29%20%F0%9F%92%9B%0AWhat%27s%20your%20next%20availability%3F" data-wa-img="image/hairstyle/a4d73d98fa86a0812a3d005bcca5add1.jpg" target="_blank" rel="noreferrer" class="btn-book">💬 Book →</a>
           </div>
         </article>
 
@@ -1670,10 +1796,10 @@
 
     /* ── STICKY NAVBAR OFFSET — push sticky category bar below fixed navbar ── */
     (function setStickyOffset() {
-      const navbar = document.querySelector('.navbar');
+      const navbar = document.getElementById('navbar');
       const switcher = document.querySelector('.category-switcher-wrap');
       if (navbar && switcher) {
-        const navH = navbar.offsetHeight + 16; // top offset of navbar
+        const navH = navbar.offsetHeight;
         switcher.style.top = navH + 'px';
       }
     })();
@@ -1692,7 +1818,25 @@
         if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80, duration: 1.4 }); }
       });
     });
-  })();(function(){var b=window.location.origin+window.location.pathname.replace(/\/[^\/]*$/,"");document.querySelectorAll("a[data-wa-img]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var u=b+"/"+a.getAttribute("data-wa-img");window.open(a.getAttribute("href")+"%0A%F0%9F%93%B8%20"+encodeURIComponent(u),"_blank","noreferrer");});});})();</script>  <script src="animations.js" defer></script>
+  })();(function(){var b=window.location.origin+window.location.pathname.replace(/\/[^\/]*$/,"");document.querySelectorAll("a[data-wa-img]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var u=b+"/"+a.getAttribute("data-wa-img");window.open(a.getAttribute("href")+"%0A%F0%9F%93%B8%20"+encodeURIComponent(u),"_blank","noreferrer");});});})();
+  /* ── NAVBAR BURGER ── */
+  (function(){
+    var burger=document.querySelector('.nav-burger');
+    var mob=document.getElementById('nav-mobile');
+    if(!burger||!mob)return;
+    burger.addEventListener('click',function(){
+      var open=burger.classList.toggle('open');
+      mob.classList.toggle('open',open);
+      burger.setAttribute('aria-expanded',String(open));
+    });
+    mob.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        burger.classList.remove('open');
+        mob.classList.remove('open');
+        burger.setAttribute('aria-expanded','false');
+      });
+    });
+  })();</script>  <script src="animations.js" defer></script>
   <script src="parallax.js" defer></script>
 </body>
 </html>
