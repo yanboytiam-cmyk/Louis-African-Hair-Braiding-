@@ -514,59 +514,75 @@
 
     /* ───────── CUSTOM STYLE REQUEST CARD ───────── */
     .custom-request-card {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 14px;
-      padding: 36px 26px;
+      gap: 16px;
+      padding: 44px 32px;
       min-height: 100%;
-      background: linear-gradient(160deg, var(--cream) 0%, #ffffff 100%);
-      border: 2px dashed var(--gold-400);
-      border-radius: 20px;
+      overflow: hidden;
+      background: radial-gradient(130% 120% at 50% 0%, #fffdf8 0%, var(--cream) 60%, var(--pearl) 100%);
+      border: 1px solid rgba(201,169,97,0.32);
+      border-radius: 22px;
+      box-shadow: 0 22px 50px -26px rgba(154,122,48,0.55);
     }
+    .custom-request-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(60% 45% at 50% 0%, rgba(201,169,97,0.13) 0%, transparent 72%);
+      pointer-events: none;
+    }
+    .custom-request-card > * { position: relative; z-index: 1; }
     .custom-request-card .cr-icon {
-      width: 58px;
-      height: 58px;
+      width: 66px;
+      height: 66px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 9999px;
-      background: rgba(201,169,97,0.14);
-      font-size: 26px;
+      background: linear-gradient(145deg, var(--gold-400) 0%, var(--gold-600) 100%);
+      color: #fff;
+      box-shadow: 0 10px 24px -8px rgba(184,146,63,0.7), inset 0 1px 0 rgba(255,255,255,0.35);
     }
+    .custom-request-card .cr-icon svg { width: 30px; height: 30px; }
     .custom-request-card .cr-title {
       font-family: 'Fraunces', serif;
-      font-size: 1.4rem;
+      font-size: 1.55rem;
       font-weight: 600;
       color: var(--ink-900);
-      line-height: 1.2;
+      line-height: 1.18;
     }
     .custom-request-card .cr-text {
       font-size: 0.92rem;
       color: var(--ink-600);
-      line-height: 1.6;
-      max-width: 24rem;
+      line-height: 1.65;
+      max-width: 23rem;
     }
     .custom-request-card .cr-btn {
-      margin-top: 4px;
+      margin-top: 6px;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 11px 22px;
+      gap: 9px;
+      padding: 13px 26px;
       border-radius: 9999px;
-      background: var(--ink-900);
-      color: var(--gold-300);
+      background: linear-gradient(135deg, var(--gold-400) 0%, var(--gold-600) 100%);
+      color: var(--ink-900);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.01em;
       text-decoration: none;
-      transition: background 0.22s, color 0.22s, transform 0.2s;
+      box-shadow: 0 12px 26px -10px rgba(184,146,63,0.75);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
     }
+    .custom-request-card .cr-btn svg { width: 17px; height: 17px; }
     .custom-request-card .cr-btn:hover {
-      background: var(--gold-500);
-      color: var(--white-warm);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 16px 32px -10px rgba(184,146,63,0.85);
     }
 
     /* ───────── NO RESULTS ───────── */
@@ -1374,10 +1390,16 @@
 
         <!-- Custom style request (visitor sends a photo via WhatsApp) -->
         <article class="custom-request-card reveal" role="listitem">
-          <div class="cr-icon" aria-hidden="true">📷</div>
+          <div class="cr-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
           <h3 class="cr-title">Don't see your style?</h3>
-          <p class="cr-text">Send us a photo of the look you want. If it's not in our catalogue, we'll tell you if we can create it and the price.</p>
-          <a href="https://wa.me/16812839575?text=Hi!%20I%20have%20a%20hairstyle%20in%20mind%20that%20isn%27t%20in%20your%20catalogue%20%F0%9F%92%9B%20I%27m%20attaching%20a%20photo%20of%20the%20look%20I%20want%20%E2%80%94%20can%20you%20do%20it%2C%20and%20what%27s%20the%20price%3F" target="_blank" rel="noreferrer" class="cr-btn">📷 Send a photo →</a>
+          <p class="cr-text">Send us a photo of the look you want. If it's not in our catalogue, we'll tell you if we can create it — and the price.</p>
+          <a href="https://wa.me/16812839575?text=Hi!%20I%20have%20a%20hairstyle%20in%20mind%20that%20isn%27t%20in%20your%20catalogue%20%F0%9F%92%9B%20I%27m%20attaching%20a%20photo%20of%20the%20look%20I%20want%20%E2%80%94%20can%20you%20do%20it%2C%20and%20what%27s%20the%20price%3F" target="_blank" rel="noreferrer" class="cr-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            Send a photo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </article>
 
         <!-- No Results Message -->
