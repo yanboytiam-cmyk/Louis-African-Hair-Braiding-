@@ -881,10 +881,12 @@
       });
     });
   })();
-    // ---- Set date min to today ----
+    // ---- Set date min to today (form peut être absent) ----
     const dateInput = document.getElementById('prefDate');
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.min = today;
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+    }
 
     // ---- Highlight today in hours table ----
     const todayDay = new Date().getDay();
