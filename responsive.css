@@ -159,7 +159,8 @@ img, video {
   .manifesto-grid { grid-template-columns: 1fr !important; }
 
   /* BUG #11 FIX : utiliser clamp pour éviter le saut brusque de padding */
-  section:not(#hero):not(#booking) { padding: clamp(2.5rem, 8vw, 4rem) 0 !important; }
+  /* Mobile: espacements verticaux resserrés pour éviter les grands vides */
+  section:not(#hero):not(#booking) { padding: clamp(1.75rem, 6vw, 3rem) 0 !important; }
   #hero { padding: 0 !important; }
 
   /* About page */

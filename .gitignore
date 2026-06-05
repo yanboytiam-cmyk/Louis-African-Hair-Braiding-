@@ -1,9 +1,8 @@
-# OS files
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Editor files
-.vscode/
-*.swp
-*.swo
+node_modules/
+package.json
+package-lock.json
+_shots/
+_shot.mjs
+_shot2.mjs
+dns-message-whatsapp.txt
+CLAUDE.md

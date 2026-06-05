@@ -451,6 +451,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   /* ── LENIS SMOOTH SCROLL ── */
   (function () {
     if (typeof Lenis === 'undefined') return;
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return; /* native scroll on mobile */
     const lenis = new Lenis({ duration: 1.2, easing: t => 1 - Math.pow(1 - t, 4), smoothWheel: true });
     window.__lenis = lenis;
       function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
@@ -503,6 +504,7 @@ window.addEventListener('resize', applyFooterLayout);
   /* ── LENIS SMOOTH SCROLL ── */
   (function () {
     if (typeof Lenis === 'undefined') return;
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return; /* native scroll on mobile */
     const lenis = new Lenis({ duration: 1.2, easing: t => 1 - Math.pow(1 - t, 4), smoothWheel: true });
     window.__lenis = lenis;
       function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }

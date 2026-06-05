@@ -377,3 +377,34 @@
   }
 
 })();
+
+/* ═══════════════════════════════════════════════════════════════
+   REVEAL SAFETY NET (mobile-robust)
+   Backup observer for the .reveal family so content is NEVER left
+   blank if a page's inline observer fails or doesn't run.
+   • reveals on scroll-in (keeps the animation)
+   • forces visible after 3s as a last resort
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+  function run() {
+    var sel = '.reveal, .tilt-reveal, .spin-reveal, .slide-rotate-reveal';
+    var els = document.querySelectorAll(sel);
+    if (!els.length) return;
+    function show(el) { el.classList.add('visible'); }
+    if (!('IntersectionObserver' in window)) { els.forEach(show); return; }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { show(e.target); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) {
+      if (el.classList.contains('visible')) return;
+      obs.observe(el);
+      setTimeout(function () { show(el); }, 3000); /* never stay hidden */
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else { run(); }
+})();

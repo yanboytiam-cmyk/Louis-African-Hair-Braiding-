@@ -2541,6 +2541,7 @@
     /* ── LENIS SMOOTH SCROLL ── */
     (function () {
       if (typeof Lenis === 'undefined') return;
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return; /* native scroll on mobile */
       const lenis = new Lenis({
         duration: 1.2,
         easing: t => 1 - Math.pow(1 - t, 4),
