@@ -875,18 +875,20 @@
       observer.observe(el);
     });
 
-    // Newsletter
-    document.getElementById('nl-btn').addEventListener('click', () => {
-      const input = document.getElementById('nl-email');
-      if (input.value.includes('@')) {
-        const btn = document.getElementById('nl-btn');
-        btn.textContent = 'Subscribed ✓';
-        btn.style.background = '#22c55e';
-        input.value = '';
-        input.disabled = true;
-        btn.disabled = true;
-      }
-    });
+    // Newsletter (guard: le formulaire peut avoir été retiré de cette page)
+    const nlBtn = document.getElementById('nl-btn');
+    if (nlBtn) {
+      nlBtn.addEventListener('click', () => {
+        const input = document.getElementById('nl-email');
+        if (input && input.value.includes('@')) {
+          nlBtn.textContent = 'Subscribed ✓';
+          nlBtn.style.background = '#22c55e';
+          input.value = '';
+          input.disabled = true;
+          nlBtn.disabled = true;
+        }
+      });
+    }
 
     // Footer accordion (mobile)
     document.querySelectorAll('.footer-acc-trigger').forEach(btn => {
