@@ -2,6 +2,15 @@
    LOUIS AFRICAN HAIR BRAIDING — Animation System (v3 — audited)
    ═══════════════════════════════════════════════════════════════ */
 
+/* ── LENIS SMOOTH SCROLL (CSS requis par la lib) ───────────────────
+   Sans ces règles, Lenis peut laisser la page dans un état de scroll
+   incohérent (notamment scroll figé). À charger sur toutes les pages. */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
 /* ── KEYFRAMES ─────────────────────────────────────────────────── */
 
 @keyframes floatY {

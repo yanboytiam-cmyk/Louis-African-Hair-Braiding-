@@ -408,3 +408,31 @@
     document.addEventListener('DOMContentLoaded', run);
   } else { run(); }
 })();
+
+/* ═══════════════════════════════════════════════════════════════
+   BFCACHE SCROLL-LOCK FIX
+   Quand une page est restaurée depuis le back/forward cache (bouton
+   Précédent/Suivant, retour depuis un autre onglet), le smooth-scroll
+   Lenis a « capturé » le scroll mais sa boucle requestAnimationFrame ne
+   tourne plus → la page devient impossible à scroller (haut ET bas).
+   On détruit alors proprement Lenis et on lève tout verrou de scroll,
+   ce qui redonne immédiatement le scroll natif. Aucun rechargement,
+   aucun clignotement.
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+  function unlockScroll() {
+    var l = window.__lenis;
+    if (l && typeof l.destroy === 'function') {
+      try { l.destroy(); } catch (e) {}
+      window.__lenis = null;
+    }
+    var h = document.documentElement;
+    h.classList.remove('lenis', 'lenis-smooth', 'lenis-scrolling', 'lenis-stopped');
+    h.style.removeProperty('overflow');
+    document.body.style.removeProperty('overflow');
+  }
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) unlockScroll();   /* uniquement les restaurations bfcache */
+  });
+})();
