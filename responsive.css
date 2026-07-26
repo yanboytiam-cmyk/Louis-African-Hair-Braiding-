@@ -730,6 +730,35 @@ a.btn-ghost,
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   MOBILE POLISH (audit) — lisibilité du sous-titre logo + confort
+   des cibles tactiles dans le pied de page.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Sous-titre « African Hair Braiding » : un peu plus grand pour rester
+     lisible (9.6px → ~10.6px), letter-spacing légèrement réduit pour
+     conserver la largeur d'origine. */
+  .nav-logo-sub { font-size: .66rem !important; letter-spacing: .13em !important; }
+
+  /* Liens du pied de page : plus d'aire tactile (confort au pouce) sans
+     changer le rendu visuel du texte. */
+  footer .footer-links a,
+  footer .accordion-body ul li a,
+  footer .footer-col-body a,
+  footer .footer-collapsible a {
+    display: inline-block;
+    padding: .45rem 0;
+  }
+  footer a[href^="tel:"],
+  footer a[href^="mailto:"] {
+    display: inline-block;
+    padding: .35rem 0;
+  }
+  /* Les accordéons repliables du footer doivent laisser respirer les liens
+     agrandis sans les rogner. */
+  .footer-collapsible.open { max-height: 520px !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
    PRINT
    ═══════════════════════════════════════════════════════════════ */
 @media print {
