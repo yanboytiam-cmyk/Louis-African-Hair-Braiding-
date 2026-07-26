@@ -980,8 +980,13 @@
       .footer-main { grid-template-columns: 1fr; gap: 2.5rem; }
       .timeline::before { left: 18px; transform: none; }
       .tl-entry { grid-template-columns: 30px 1fr; grid-template-rows: auto; }
+      /* Placement explicite : le point en colonne 1, le contenu en colonne 2,
+         quel que soit l'ordre DOM (entrées gauche ET droite). Sans cela, les
+         entrées "left" plaçaient leur contenu dans la colonne de 30px → texte
+         écrasé sur mobile. */
+      .tl-dot { grid-column: 1; }
       .tl-content.left,
-      .tl-content.right { margin: 0; text-align: left; }
+      .tl-content.right { grid-column: 2; margin: 0; text-align: left; }
       .tl-content.empty { display: none; }
       .tl-dot { width: 12px; height: 12px; }
       .hero-stats { flex-direction: column; bottom: 1.5rem; gap: 0.6rem; }
