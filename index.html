@@ -390,6 +390,72 @@
       object-fit: cover; object-position: center;
     }
 
+    /* ── CARROUSEL DU HERO ──────────────────────────────────────────
+       Les photos du salon sont des portraits pris au telephone : dans un
+       cadre large, on privilegie le haut (les cheveux) plutot que le centre. */
+    .hero-carousel { position: absolute; inset: 0; }
+
+    .hero-slide {
+      opacity: 0;
+      transition: opacity .9s ease-in-out;
+      object-position: center 25%;
+    }
+
+    .hero-slide.is-active { opacity: 1; }
+
+    /* Pastilles de navigation, discretes, en bas a droite.
+       responsive.css impose min 44x44 a TOUS les boutons (cibles tactiles).
+       On garde donc cette zone cliquable de 44px, mais la pastille visible
+       est dessinee en 7px via ::before : accessible ET discret. */
+    .hero-dots {
+      position: absolute;
+      right: clamp(.25rem, 2vw, 2rem);
+      bottom: clamp(.5rem, 2vw, 1.5rem);
+      z-index: 11;
+      display: flex;
+      gap: 0;
+      flex-wrap: wrap;
+      max-width: 100%;
+      justify-content: flex-end;
+    }
+
+    .hero-dot {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+    .hero-dot::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 9999px;
+      background: rgba(253, 252, 249, .38);
+      transition: background .3s, transform .3s;
+    }
+
+    .hero-dot:hover::before { background: rgba(253, 252, 249, .7); }
+
+    .hero-dot.is-active::before {
+      background: var(--gold-400, #c9a961);
+      transform: scale(1.5);
+    }
+
+    /* Sous 640px, 11 cibles de 44px ne tiennent pas : le carrousel
+       continue de tourner tout seul, on masque simplement les pastilles. */
+    @media (max-width: 640px) {
+      .hero-dots { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide { transition: none; }
+    }
+
     .hero-overlay-lr {
       position: absolute;
       inset: 0;
@@ -960,8 +1026,10 @@
       }
     }
 
+    .immersion-grid { flex-wrap: wrap; }
+
     .immersion-img {
-      flex: 1;
+      flex: 1 1 calc(33.333% - .67rem);
       min-height: 340px;
       border-radius: var(--r-xl);
       overflow: hidden;
@@ -1721,12 +1789,31 @@
 
     <!-- ── HERO ── -->
     <section id="hero" aria-label="Hero">
-      <video preload="metadata" class="hero-video" autoplay loop muted playsinline
-        poster="image/wings/1c60e6e095461f3c4d7dc4961f503664.jpg">
-        <source src="video/Braided%20Hair%20Inspo.mp4" type="video/mp4" />
-      </video>
+      <!-- ── CARROUSEL DE FOND : photos et videos prises dans le salon ──
+           Chaque media porte .hero-video (plein cadre) + .hero-slide (fondu).
+           Le premier est actif d'emblee pour eviter tout ecran noir au chargement. -->
+      <div class="hero-carousel" aria-hidden="true">
+        <video class="hero-video hero-slide is-active" data-duree="11000" muted loop playsinline preload="metadata"
+          poster="image/salon/faux-locs-crochet-poster.jpg">
+          <source src="video/salon-faux-locs-crochet.mp4" type="video/mp4" />
+        </video>
+        <img class="hero-video hero-slide" src="image/salon/cornrows-honey-curly-ends.jpg" alt="" loading="lazy" />
+        <video class="hero-video hero-slide" data-duree="10000" muted loop playsinline preload="none"
+          poster="image/salon/men-braids-poster.jpg">
+          <source src="video/salon-men-braids.mp4" type="video/mp4" />
+        </video>
+        <img class="hero-video hero-slide" src="image/salon/box-braids-curly-ends.jpg" alt="" loading="lazy" />
+        <img class="hero-video hero-slide" src="image/salon/fulani-sew-in.jpg" alt="" loading="lazy" />
+        <img class="hero-video hero-slide" src="image/salon/bora-bora-curls.jpg" alt="" loading="lazy" />
+        <img class="hero-video hero-slide" src="image/salon/dreadlocks-retwist.jpg" alt="" loading="lazy" />
+        <img class="hero-video hero-slide" src="image/salon/box-braids-blue-side.jpg" alt="" loading="lazy" />
+        <img class="hero-video hero-slide" src="image/salon/men-crochet-top.jpg" alt="" loading="lazy" />
+        <img class="hero-video hero-slide" src="image/salon/box-braids-blue-top.jpg" alt="" loading="lazy" />
+        <img class="hero-video hero-slide" src="image/salon/men-crochet-side.jpg" alt="" loading="lazy" />
+      </div>
       <div class="hero-overlay-lr" aria-hidden="true"></div>
       <div class="hero-overlay-tb" aria-hidden="true"></div>
+      <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Salon gallery"></div>
 
 
       <div class="hero-content">
@@ -1911,6 +1998,21 @@
       </div>
       <div class="container">
         <div class="immersion-grid">
+          <!-- Vraies photos et video du salon. Remplacent des visuels generes par IA. -->
+          <div class="immersion-img reveal">
+            <img src="image/salon/fulani-sew-in.jpg" alt="Inside the salon — a Fulani sew-in in progress"
+              loading="lazy" style="object-position: center; width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+          <div class="immersion-img reveal reveal-delay-1">
+            <video preload="metadata" poster="image/salon/men-braids-poster.jpg" autoplay loop muted playsinline style="object-position: center; width: 100%; height: 100%; object-fit: cover;">
+              <source src="video/salon-men-braids.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="immersion-img reveal reveal-delay-2">
+            <img src="image/salon/box-braids-blue-top.jpg"
+              alt="Precision parting on box braids, in the salon" loading="lazy" style="object-position: center 25%; width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+          <!-- Tuiles d'origine, conservees -->
           <div class="immersion-img reveal">
             <img src="image/generated/braid_detail_1_1778222652955.jpg" alt="Salon overview — gold and white interior"
               loading="lazy" style="object-position: center; width: 100%; height: 100%; object-fit: cover;" />
@@ -1924,7 +2026,7 @@
             <img src="image/generated/salon_chair_1778222686397.jpg"
               alt="Stylist at work — precision braiding session" loading="lazy" style="object-position: center; width: 100%; height: 100%; object-fit: cover;" />
           </div>
-        </div>
+</div>
         <div style="max-width:40rem;margin:5rem auto 0;text-align:center;">
           <p class="text-body-lg reveal" style="color:rgba(242,237,224,.8);line-height:1.7;margin-bottom:2rem;">Modern
             minimalist architecture bathed in golden light. A second home dedicated to women, where every detail crafts
@@ -2037,7 +2139,7 @@
               Photo highlight</p>
           </div>
           <div style="position:relative;height:220px;overflow:hidden;border-radius:var(--r-xl);" class="reveal reveal-delay-1">
-            <video preload="metadata" poster="image/hairstyle/5631b05b64a7544cfea39cb446864718.jpg" src="video/Jayda%20wayda%20braids%F0%9F%A5%B0.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position: center;"></video>
+            <video preload="metadata" poster="image/salon/faux-locs-crochet-poster.jpg" src="video/salon-faux-locs-crochet.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position: center;"></video>
             <p style="position:absolute;bottom:.75rem;left:.75rem;color:#fff;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Video</p>
           </div>
           <div style="position:relative;height:220px;overflow:hidden;border-radius:var(--r-xl);" class="reveal reveal-delay-1">
@@ -2074,6 +2176,96 @@
           </a>
         </div>
         <div class="gallery-bento">
+          <!-- Photos du salon, intitules donnes par la proprietaire -->
+          <div class="gallery-item row-span-2 reveal" data-label="Box Braids &middot; 3–5 hours"
+            data-src="image/salon/box-braids-curly-ends.jpg" data-alt="Box braids with curly ends, styled at Louis African Hair Braiding">
+            <img src="image/salon/box-braids-curly-ends.jpg" alt="Box braids with curly ends, styled at Louis African Hair Braiding" loading="lazy"
+              style="object-fit: cover; object-position: center 20%; width: 100%; height: 100%;" />
+            <div class="gallery-overlay">
+              <div>
+                <p style="color:#fff;font-weight:600;font-size:.875rem;">Box Braids &middot; 3–5 hours</p>
+                <p style="color:var(--gold-300);font-size:.75rem;margin-top:.25rem;">Click to enlarge</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item col-span-2 reveal reveal-delay-1" data-label="Cornrows"
+            data-src="image/salon/cornrows-honey-curly-ends.jpg" data-alt="Honey-toned cornrows with curly ends">
+            <img src="image/salon/cornrows-honey-curly-ends.jpg" alt="Honey-toned cornrows with curly ends" loading="lazy"
+              style="object-fit: cover; object-position: center 20%; width: 100%; height: 100%;" />
+            <div class="gallery-overlay">
+              <div>
+                <p style="color:#fff;font-weight:600;font-size:.875rem;">Cornrows</p>
+                <p style="color:var(--gold-300);font-size:.75rem;margin-top:.25rem;">Click to enlarge</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item row-span-2 reveal reveal-delay-1" data-label="Fulani Sew-In"
+            data-src="image/salon/fulani-sew-in.jpg" data-alt="Fulani sew-in with curved cornrows and a curly ponytail">
+            <img src="image/salon/fulani-sew-in.jpg" alt="Fulani sew-in with curved cornrows and a curly ponytail" loading="lazy"
+              style="object-fit: cover; object-position: center 20%; width: 100%; height: 100%;" />
+            <div class="gallery-overlay">
+              <div>
+                <p style="color:#fff;font-weight:600;font-size:.875rem;">Fulani Sew-In</p>
+                <p style="color:var(--gold-300);font-size:.75rem;margin-top:.25rem;">Click to enlarge</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-2" data-label="Bora Bora"
+            data-src="image/salon/bora-bora-curls.jpg" data-alt="Bora Bora curls with honey highlights">
+            <img src="image/salon/bora-bora-curls.jpg" alt="Bora Bora curls with honey highlights" loading="lazy"
+              style="object-fit: cover; object-position: center 20%; width: 100%; height: 100%;" />
+            <div class="gallery-overlay">
+              <div>
+                <p style="color:#fff;font-weight:600;font-size:.875rem;">Bora Bora</p>
+                <p style="color:var(--gold-300);font-size:.75rem;margin-top:.25rem;">Click to enlarge</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-2" data-label="Dreadlocks Retwist"
+            data-src="image/salon/dreadlocks-retwist.jpg" data-alt="Freshly retwisted locs">
+            <img src="image/salon/dreadlocks-retwist.jpg" alt="Freshly retwisted locs" loading="lazy"
+              style="object-fit: cover; object-position: center 20%; width: 100%; height: 100%;" />
+            <div class="gallery-overlay">
+              <div>
+                <p style="color:#fff;font-weight:600;font-size:.875rem;">Dreadlocks Retwist</p>
+                <p style="color:var(--gold-300);font-size:.75rem;margin-top:.25rem;">Click to enlarge</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item col-span-2 reveal reveal-delay-3" data-label="Men Crochet"
+            data-src="image/salon/men-crochet-top.jpg" data-alt="Men's crochet braids with clean parts">
+            <img src="image/salon/men-crochet-top.jpg" alt="Men's crochet braids with clean parts" loading="lazy"
+              style="object-fit: cover; object-position: center 20%; width: 100%; height: 100%;" />
+            <div class="gallery-overlay">
+              <div>
+                <p style="color:#fff;font-weight:600;font-size:.875rem;">Men Crochet</p>
+                <p style="color:var(--gold-300);font-size:.75rem;margin-top:.25rem;">Click to enlarge</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-3" data-label="Box Braids"
+            data-src="image/salon/box-braids-blue-side.jpg" data-alt="Blue box braids, side view">
+            <img src="image/salon/box-braids-blue-side.jpg" alt="Blue box braids, side view" loading="lazy"
+              style="object-fit: cover; object-position: center 20%; width: 100%; height: 100%;" />
+            <div class="gallery-overlay">
+              <div>
+                <p style="color:#fff;font-weight:600;font-size:.875rem;">Box Braids</p>
+                <p style="color:var(--gold-300);font-size:.75rem;margin-top:.25rem;">Click to enlarge</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-3" data-label="Men Braids &middot; 1 hour"
+            data-src="image/salon/men-crochet-side.jpg" data-alt="Men's braids with a clean fade">
+            <img src="image/salon/men-crochet-side.jpg" alt="Men's braids with a clean fade" loading="lazy"
+              style="object-fit: cover; object-position: center 20%; width: 100%; height: 100%;" />
+            <div class="gallery-overlay">
+              <div>
+                <p style="color:#fff;font-weight:600;font-size:.875rem;">Men Braids &middot; 1 hour</p>
+                <p style="color:var(--gold-300);font-size:.75rem;margin-top:.25rem;">Click to enlarge</p>
+              </div>
+            </div>
+          </div>
+          <!-- Photos d'origine, conservees -->
           <div class="gallery-item row-span-2 reveal" data-label="Feed-In Braids · 8h work"
             data-src="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" data-alt="Portrait - feed-in braids">
             <img src="image/hairstyle/76f6a6ca9b83dacebe1e59c843a3c80b.jpg" alt="Portrait - feed-in braids"
@@ -2153,7 +2345,7 @@
 
     <!-- ── BOOKING CTA ── -->
     <section id="booking" aria-label="Book your appointment">
-      <img class="booking-bg" src="brand-hero-chair.webp" alt="" aria-hidden="true" />
+      <img class="booking-bg" src="image/generated/salon_chair_1778222686397.jpg" alt="" aria-hidden="true" />
       <div class="booking-overlay" aria-hidden="true"></div>
       <div class="booking-glow" aria-hidden="true"></div>
       <div style="position:relative;z-index:10;padding:0 1.5rem;">
@@ -2361,17 +2553,27 @@
 
   <script>
     /* ── DATA ── */
+    /* Prestations telles que la proprietaire les a nommees par WhatsApp.
+       Photos du salon quand elles existent, sinon visuel du stock d'origine.
+       Les 2 liens morts (service-boho-braids / service-half-up) ont ete corriges. */
     const SERVICES = [
+      { id: "box-braids", link: "service-box-braids.html", title: "Box Braids", desc: "Clean parts, curly ends · 3–5 hours", img: "image/salon/box-braids-curly-ends.jpg" },
+      { id: "cornrows", link: "service-cornrows.html", title: "Cornrows", desc: "Precision rows, flawless in every line", img: "image/salon/cornrows-honey-curly-ends.jpg" },
+      { id: "fulani-sew-in", link: "service-cornrows.html", title: "Fulani Sew-In", desc: "Curved cornrows with a curly ponytail", img: "image/salon/fulani-sew-in.jpg" },
+      { id: "crochet-faux-locs", link: "service-faux-locs.html", title: "Crochet Faux Locs", desc: "The loc look, done in 1 h 30", img: "image/salon/faux-locs-crochet-poster.jpg" },
+      { id: "men-braids", link: "service-cornrows.html", title: "Men Braids", desc: "Sharp parts and a clean finish · 1 hour", img: "image/salon/men-crochet-side.jpg" },
+      { id: "dreadlocks-retwist", link: "service-goddess-locs.html", title: "Dreadlocks Retwist", desc: "Fresh roots, neat and long lasting", img: "image/salon/dreadlocks-retwist.jpg" },
+      { id: "bora-bora", link: "service-passion-twists.html", title: "Bora Bora", desc: "Full, voluminous curls with a fierce edge", img: "image/salon/bora-bora-curls.jpg" },
+      { id: "knotless-braids", link: "service-knotless-braids.html", title: "Knotless Braids", desc: "Seamless, lightweight & tension-free", img: "image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" },
+      { id: "wig-install", link: "service-lace-front.html", title: "Wig Install", desc: "Undetectable lace, natural hairline finish", img: "image/wings/01ac75717460e83560a7a588d8bcf0fe.jpg" },
+      { id: "silk-press", link: "service-silk-press.html", title: "Silk Press", desc: "Sleek brilliance, zero heat damage", img: "image/wings/282ae603d3ee4a0a687df152816e4470.jpg" },
       { id: "fulani-boho-braids", link: "service-box-braids.html", title: "Fulani Boho Braids", desc: "Tribal cornrows meeting flowing curls",  img: "image/hairstyle/49ec4ea48ffab979aba9ca589dfd8ad0.jpg" },
-      { id: "knotless-braids", link: "service-knotless-braids.html", title: "Knotless Braids", desc: "Seamless, lightweight & tension-free",  img: "image/hairstyle/5672f095e7fe569d8e32878e35b1eb16.jpg" },
       { id: "long-box-braids", link: "service-box-braids.html", title: "Long Box Braids", desc: "Classic thick braids, bold and timeless",  img: "image/hairstyle/05e8b4fc18ed0a9335e53d51c6d46a5e.jpg" },
       { id: "faux-locs", link: "service-faux-locs.html", title: "Faux Locs", desc: "The loc look without the commitment",  img: "image/hairstyle/19b0f6dd87d2b3450fef48d1cef22d90.jpg" },
-      { id: "silk-press", link: "service-silk-press.html", title: "Silk Press", desc: "Sleek brilliance, zero heat damage",  img: "image/wings/282ae603d3ee4a0a687df152816e4470.jpg" },
-      { id: "wig-install", link: "service-lace-front.html", title: "Wig Install", desc: "Undetectable lace, natural hairline finish",  img: "image/wings/01ac75717460e83560a7a588d8bcf0fe.jpg" },
-      { id: "boho-braids", link: "service-boho-braids.html", title: "Boho Knotless Braids", desc: "Featherlight from root to tip with curls",  img: "image/hairstyle/529dcde1acb2ab0f80203381edea31a3.jpg" },
-      { id: "half-up-half-down", link: "service-half-up.html", title: "Half-Up Half-Down", desc: "Sculptural cornrows on top with a flowing curly back",  img: "image/hairstyle/5631b05b64a7544cfea39cb446864718.jpg" },
+      { id: "boho-braids", link: "service-knotless-braids.html", title: "Boho Knotless Braids", desc: "Featherlight from root to tip with curls",  img: "image/hairstyle/529dcde1acb2ab0f80203381edea31a3.jpg" },
+      { id: "half-up-half-down", link: "service-cornrows.html", title: "Half-Up Half-Down", desc: "Sculptural cornrows on top with a flowing curly back",  img: "image/hairstyle/5631b05b64a7544cfea39cb446864718.jpg" },
       { id: "goddess-cornrows", link: "service-cornrows.html", title: "Goddess Cornrows", desc: "Intricate braided patterns meeting bouncy, romantic curls",  img: "image/hairstyle/6ba44eb750e3df354f4a5f1e6778f49d.jpg" },
-      { id: "curly-goddess-braids", link: "service-passion-twists.html", title: "Curly Goddess Braids", desc: "Full, voluminous curls with a fierce edge",  img: "image/hairstyle/6fd5be9d1b6e65091efbb44fafb2cb74.jpg" }
+      { id: "curly-goddess-braids", link: "service-passion-twists.html", title: "Curly Goddess Braids", desc: "Full, voluminous curls with a fierce edge",  img: "image/salon/bora-bora-curls.jpg" }
     ];
     const PROBLEMS = [
       { title: "Unblended lace", desc: "Wigs that look like wigs, with visible grids and harsh lines" },
@@ -2584,9 +2786,82 @@
       });
     })();
 
+    /* ── CARROUSEL DU HERO ────────────────────────────────────────────
+       Fait defiler les photos et videos du salon en fond du hero.
+       Une video reste affichee le temps de sa duree (data-duree),
+       une photo 4,5 s. Seule la video active est lue, les autres sont
+       mises en pause pour ne pas consommer inutilement.               */
+    (function () {
+      var carrousel = document.querySelector('.hero-carousel');
+      if (!carrousel) return;
+      var slides = Array.prototype.slice.call(carrousel.querySelectorAll('.hero-slide'));
+      if (slides.length < 2) return;
+
+      var DUREE_PHOTO = 4500;
+      var zoneDots = document.getElementById('hero-dots');
+      var index = 0, minuteur = null;
+
+      var dots = slides.map(function (_, i) {
+        if (!zoneDots) return null;
+        var d = document.createElement('button');
+        d.type = 'button';
+        d.className = 'hero-dot' + (i === 0 ? ' is-active' : '');
+        d.setAttribute('aria-label', 'Visual ' + (i + 1) + ' of ' + slides.length);
+        d.addEventListener('click', function () { afficher(i, true); });
+        zoneDots.appendChild(d);
+        return d;
+      });
+
+      function estVideo(el) { return el.tagName === 'VIDEO'; }
+
+      function afficher(n, parClic) {
+        var sortant = slides[index];
+        index = (n + slides.length) % slides.length;
+        var entrant = slides[index];
+
+        if (sortant !== entrant) {
+          sortant.classList.remove('is-active');
+          if (estVideo(sortant)) { try { sortant.pause(); } catch (e) {} }
+        }
+        entrant.classList.add('is-active');
+        dots.forEach(function (d, i) { if (d) d.classList.toggle('is-active', i === index); });
+
+        // Precharge le media suivant pour eviter un fondu sur du vide
+        var suivant = slides[(index + 1) % slides.length];
+        if (estVideo(suivant) && suivant.preload === 'none') suivant.preload = 'metadata';
+
+        var attente = DUREE_PHOTO;
+        if (estVideo(entrant)) {
+          attente = parseInt(entrant.dataset.duree, 10) || 8000;
+          try { entrant.currentTime = 0; } catch (e) {}
+          var p = entrant.play();
+          if (p && p.catch) p.catch(function () {});
+        }
+        programmer(attente);
+      }
+
+      function programmer(delai) {
+        clearTimeout(minuteur);
+        minuteur = setTimeout(function () { afficher(index + 1, false); }, delai);
+      }
+
+      // On ne fait pas tourner le carrousel quand l'onglet est en arriere-plan
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) { clearTimeout(minuteur); }
+        else { programmer(1200); }
+      });
+
+      var premier = slides[0];
+      if (estVideo(premier)) {
+        var pp = premier.play();
+        if (pp && pp.catch) pp.catch(function () {});
+        programmer(parseInt(premier.dataset.duree, 10) || 8000);
+      } else {
+        programmer(DUREE_PHOTO);
+      }
+    })();
+
   </script>
-  <script src="animations.js" defer></script>
-  <script src="parallax.js" defer></script>
 </body>
 
 </html>

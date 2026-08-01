@@ -282,7 +282,9 @@ footer{background:var(--ink-800);color:rgba(255,255,255,.6);padding:4rem 0 2rem;
 </header>
 
 <section id="hero">
-  <video preload="metadata" class="hero-bg" autoplay loop muted playsinline poster="image/hairstyle/790350741d0a6fe96d38a87ea84e12b1.jpg" style="object-position: center 20%; width: 100%; height: 100%; object-fit: cover;"><source src="video/favorite%20style%2C%20favorite%20season%2C%20favorite%20braider!%20plaits%20for%20the%20summer%F0%9F%98%AE%E2%80%8D%F0%9F%92%A8%20%23mensbraids%20%23summer%20%23atlanta%20%23blackman_2.mp4" type="video/mp4" /></video>
+  <!-- La video precedente montrait des tresses homme filmees dans un autre salon, hors sujet sur une page perruques.
+       On garde l'image qui servait deja de poster, en attente d'une video "Wig" fournie par la cliente. -->
+  <img class="hero-bg" src="image/hairstyle/790350741d0a6fe96d38a87ea84e12b1.jpg" alt="HD lace wig install with a seamless hairline" style="object-position: center 20%; width: 100%; height: 100%; object-fit: cover;" />
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="container">
@@ -498,7 +500,5 @@ document.querySelectorAll('.footer-col-toggle').forEach(toggle => {
         burger.setAttribute('aria-expanded','false');
       });
     });
-  })();</script>  <script src="animations.js" defer></script>
-  <script src="parallax.js" defer></script>
-</body>
+  })();</script></body>
 </html>

@@ -737,3 +737,56 @@ a.btn-ghost,
   body { color: #000 !important; background: #fff !important; }
   section { padding: 1rem 0 !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATIONS DE SCROLL RETIREES
+   animations.js et parallax.js ont ete debranches du site.
+   Beaucoup de blocs demarrent a opacity:0 et n'apparaissaient que
+   lorsqu'un script les faisait entrer a l'ecran. Sans ce JS, une
+   partie du contenu restait invisible (verifie : 35 blocs sur 42
+   sur la page d'accueil). On neutralise donc ces etats initiaux :
+   tout s'affiche immediatement, sans fondu ni deplacement.
+
+   NE SONT PAS TOUCHES, car legitimement masques :
+     .card-hover, .gallery-overlay  -> apparaissent au survol
+     .nav-burger span               -> animation du bouton menu
+     .swatch::after                 -> coche de selection
+
+   Cette feuille est chargee en dernier et doit battre les <style>
+   inline des pages : d'ou les !important.
+   ═══════════════════════════════════════════════════════════════ */
+.reveal,
+.reveal-delay-1,
+.reveal-delay-2,
+.reveal-delay-3,
+.tilt-reveal,
+.spin-reveal,
+.slide-rotate-reveal,
+.bento-grid .service-card,
+.accordion-item,
+.cta-section,
+.divider,
+.gold-rule,
+.hero-eyebrow,
+.hero-sub,
+.hero-subtitle,
+.hero-title,
+.hero-line,
+.hero-btns,
+.hero-ctas,
+.hero-stat,
+.hero-stats,
+.hero-testimonial,
+.hero h1,
+.hero-h1 .word,
+.word-inner,
+.page-eyebrow,
+.page-title,
+.policy-section,
+.scroll-cue,
+.toc {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
