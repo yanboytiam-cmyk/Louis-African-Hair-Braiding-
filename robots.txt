@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://louisafricanhair.com/sitemap.xml
+Sitemap: https://louisafricanhairbraiding.com/sitemap.xml
